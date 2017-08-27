@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>HTML 5 - Formularios e Inputs</title>
+    </head>
+    <body>
+        <form>
+            Selecciona tu color favorito:
+            <input type="color" name="favcolor" value="#ff0000">
+            <p><b>Nota:</b> type="color" no es soportado por IE 11 y anteriores versiones.</p>
+            <hr/>
+            Fecha de nacimiento:
+            <input type="date" name="bday" min="1999-01-01" max="2020-12-31" >
+            <p><b>Nota:</b> type="date" no es soportado por Firefox o IE 11 y anteriores versiones.</p>
+            <hr/>
+            Inicio de clases (mes y año):
+            <input type="month" name="mesanio">
+            <p><b>Nota:</b> type="month" no es soportado por Firefox o IE 11 y anteriores versiones.</p>
+            <hr/>
+            E-mail:
+            <input type="email" name="email" >
+            <p><b>Nota:</b> type="email" no es soportado por IE 9 y anteriores versiones.</p>
+            <hr/>        
+            Número de lenguajes aprendidos:
+            <input type="number" name="lenguajes" min="0" max="12" step="2" >
+            <p><b>Nota:</b> type="number" no es soportado por IE 9 y anteriores versiones.</p>
+            <hr/>
+            Calificación pretendida:
+            0<input type="range" name="calificacion" min="0" max="10" value="4" >10
+            <p><b>Nota:</b> type="range" no es soportado por IE 9 y anteriores versiones.</p>
+            <hr/>
+            Seleccione horario:
+            <input type="time" name="horario"  >
+            <p><b>Nota:</b> type="time" no es soportado por Firefox o IE 12 y anteriores versiones.</p>
+            <hr/>
+            Indique url:
+            <input type="url" name="web"  >
+            <p><b>Nota:</b> type="url" no es soportado por IE 9 y anteriores versiones.</p>
+            <hr/>
+            Seleccione la mejor semana de su vida:
+            <input type="week" name="bestday"  >
+            <p><b>Nota:</b> type="week" no es soportado por Firefox o IE 11 y anteriores versiones.</p>
+            <hr/>
+            <input title="algo" type="text" name="algo" placeholder="Ingrese algo" required >
+            <hr/>
+            <input list="browsers" placeholder="Elija su navegador preferido">
+            <datalist id="browsers" >
+                <option value="Internet Explorer">
+                <option value="Firefox">
+                <option value="Chrome">
+                <option value="Opera">
+                <option value="Safari">
+            </datalist>
+            <p><b>Nota:</b> los datalist no son soportados por IE 9 y anteriores versiones.</p>
+            <hr/>
+
+            <input type="submit" value="Enviar" />
+            <input type="reset" value="Limpiar" />
+        </form>
+    </body>
+</html>
