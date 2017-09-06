@@ -5,15 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ejercicio 16</title>
-    <script src="./main.js"/>
-    
+    <script src="./main.js"></script>
 </head>
 <body>
     <form>
-        <input type"text" required placeholder="Ingrese su nombre" id="txtNombre"/>
+        <input type="text" placeholder="Ingrese su nombre" id="txtNombre" title="Nombre" required />
         <br/>
         <br/>
-        <input type="button" value="Dale noma" onclick="mostrar()"/>
+        <input type="number" title="DNI" min="1" max="99999999" id="nmbDNI" />
+        <br/>
+        <br/>
+        <input type="email" placeholder="Ingrese su mail" id="eMail" title="Email" required />
+        <br/>
+        <br/>
+        <textarea placeholder="Ingrese su comentario" id="txtaComentario" title="Comentario" required ></textarea>
+        <br/>
+        <br/>
+        <input type="button" value="Enviar" onclick="mostrar()"/>
     </form>
 </body>
 </html>

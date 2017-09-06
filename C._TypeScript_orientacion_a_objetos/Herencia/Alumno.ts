@@ -16,6 +16,6 @@ export class Alumno extends Persona {
 
         public ToString() : string{
 
-            return super.ToString() + "\nLegajo: " + this._legajo + "\nMatriz: " + this._matriz + "Nota: " + this._nota;
+            return super.ToString() + "\nLegajo: " + this._legajo + "\nMatriz: " + this._matriz + "\nNota: " + this._nota;
         }
     }

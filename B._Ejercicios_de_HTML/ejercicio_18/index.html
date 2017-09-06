@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 18</title>
+    <script src="./main.js"></script>
+</head>
+<body>
+    <form name="frm">
+        <input type="text" placeholder="Ingrese su nombre aqui" title="nombre" id="txtNombre" required>
+        <br/>
+        <h4 style="color:chocolate">Puntue nuestro sitio</h4>
+        <table>
+            <tr>
+                <td>Excelente</td>
+                <td><input type="radio" name="rdoOpcion" value="Excelente" checked /></td>
+            </tr>
+            <tr>
+                <td>Muy bueno</td>
+                <td><input type="radio" name="rdoOpcion" value="Muy bueno" /></td>
+            </tr>
+            <tr>
+                <td>Bueno</td>
+                <td><input type="radio" name="rdoOpcion" value="Bueno" /></td>
+            </tr>
+            <tr>
+                <td>Regular</td>
+                <td><input type="radio" name="rdoOpcion" value="Regular" /></td>
+            </tr>
+            <tr>
+                <td>Malo</td>
+                <td><input type="radio" name="rdoOpcion" value="Malo" /></td>
+            </tr>
+        </table>
+        <br/>
+        <input type="button" onclick="Funcion()" value="Enviar" />
+    </form>
+</body>
+</html>

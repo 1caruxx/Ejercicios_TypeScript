@@ -21,7 +21,7 @@ var Alumno = /** @class */ (function (_super) {
         return _this;
     }
     Alumno.prototype.ToString = function () {
-        return _super.prototype.ToString.call(this) + "\nLegajo: " + this._legajo + "\nMatriz: " + this._matriz + "Nota: " + this._nota;
+        return _super.prototype.ToString.call(this) + "\nLegajo: " + this._legajo + "\nMatriz: " + this._matriz + "\nNota: " + this._nota;
     };
     return Alumno;
 }(Persona_1.Persona));

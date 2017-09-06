@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 21</title>
+    <script src="./main.js"></script>
+</head>
+<body>
+    <form>
+        <table align="center">
+            <tr>
+                <td colspan="2"><input type="number" title="Ingrese un valor" value="0" id="nmbNumeroUno"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="number" title="Ingrese otro valor" value="0" id="nmbNumeroDos"/></td>
+            </tr>
+            <tr>
+                <td>+</td>
+                <td>&nbsp;&nbsp;&nbsp;<input type="radio" name="rdoOpcion" value="+" checked /></td>
+            </tr>
+            <tr>
+                <td>-</td>
+                <td>&nbsp;&nbsp;&nbsp;<input type="radio" name="rdoOpcion" value="-" /></td>
+            </tr>
+            <tr>
+                <td>*</td>
+                <td>&nbsp;&nbsp;&nbsp;<input type="radio" name="rdoOpcion" value="*" /></td>
+            </tr>
+            <tr>
+                <td>/</td>
+                <td>&nbsp;&nbsp;&nbsp;<input type="radio" name="rdoOpcion" value="/" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="padding-left:50px"><input type="button" onclick="Calcular()" value="Calcular" /></td>
+            </tr>
+        </table>
+        <br/>
+
+        <table align="center">
+            <tr>
+                <td><input type="number" title="Resultado" id="nmbResultado" value="0"/></td>
+                <td><input type="reset"  value="Reiniciar"/></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
