@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<title>Ejemplos AJAX</title>
+	  
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+        <link href="./img/utnLogo.png" rel="icon" type="image/png" />
+
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/animacion.css">		
+		
+		<!-- Estilos propios -->
+		<link rel="stylesheet" type="text/css" href="css/estilo.css">
+
+		<!-- Funciones Propias -->
+		<script src="manejadora.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h1>AJAX</h1>      
+		</div>
+		<div class="CajaInicio animated bounceInRight">
+			<h1>Ejemplos AJAX</h1>
+				<a href="#" class="list-group-item list-group-item list-group-item-info" >
+					<h4 class="list-group-item-heading">Objeto XMLHttpRequest</h4>
+					<p class="list-group-item-text" onclick="Test.Ajax()">Primer AJAX</p>
+					<p class="list-group-item-text" onclick="Test.AjaxGET()">Pasar par&aacute;metros por GET</p>
+					<p class="list-group-item-text" onclick="Test.AjaxPOST()">Pasar par&aacute;metros por POST</p>
+					<p class="list-group-item-text" onclick="Test.ActualizarGET()">Actualizar elemento con par&aacute;metros por GET</p>
+					<p class="list-group-item-text" onclick="Test.ActualizarPOST()">Actualizar elemento con par&aacute;metros por POST</p>
+					<p class="list-group-item-text" onclick="Test.ProcesoLargo()">Ejecutar Proceso Largo</p>
+					<a href="#" class="list-group-item list-group-item list-group-item-info" >
+						<h4 class="list-group-item-heading">Ejemplo pr&aacute;tico con AJAX</h4>
+						<p class="list-group-item-text"  onclick="Test.IrHacia('AJAX/suggestion.php')" >Utilizaci&oacute;n de sugerencias - con XMLHttpRequest</p>
+					</a>
+				</a>
+		</div>
+		<div id="divResultado" class="CajaInicio"></div>		
+		<div id="divGif" style="display:block;position:absolute" ><img id="imgGif" src="" /></div>
+	</div>
+</body>
+</html>

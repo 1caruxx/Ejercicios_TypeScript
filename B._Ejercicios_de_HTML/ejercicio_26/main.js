@@ -8,7 +8,7 @@ function Agregar() {
      * Para crear el nodo de texto que iria dentro de las etiquetas puede usarse el siguiente metodo: document.createTextNode("Hola Mundo!").
      * Para combinar un nodo con otro, por ejemplo para dar formato a un nodo de tipo texto, se debe usar el metodo instancia.appendChild(contenido), donde instancia es el objeto de tipo nodo al que se le agrega el nodo de tipo texto.
      * En este ejercicio cree un nodo de tipo texto con el valor del input de tipo text y lo añadi a un nodo con la etiqueta "li" para despues añadirlo a la lista desordenada.
-    */
+     */
     var texto = document.createTextNode(document.getElementById("txtItem").value);
     var item = document.createElement("li");
     var lista = document.getElementById("ulLista");

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 27</title>
+    <script src="./main.js"></script>
+</head>
+<body>
+    <form>
+        <input type="text" placeholder="Ingrese algo" id="txtTexto" /><br/><br/>
+        <!--Los valores que se pasen en el parametro de la funcion en HTML no se deben castear al tipo de dato 
+            HTMLInputElement sino se lanzara un error ya que no se pueden escribir simbolos de tag <> en literales-->
+        <input type="button" onclick="Agregar((document.getElementById('txtTexto')).value)" value="Agregar"/><br/><br/>
+        <div id="div"></div>
+    </form>
+</body>
+</html>
