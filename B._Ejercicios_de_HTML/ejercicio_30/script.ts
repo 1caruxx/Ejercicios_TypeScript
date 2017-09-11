@@ -1,9 +1,8 @@
-function Coordenadas(event:MouseEvent) {
+function Coordenadas(evento:MouseEvent) {
 
-   /* var coordenadasX : Text;
-    var coordenadasY : Text;
-    coordenadasX = document.createTextNode((event.clientX).toString());
-    coordenadasY = document.createTextNode((event.clientY).toString());
-    (<HTMLParagraphElement>document.getElementById("h")).appendChild(coordenadasX);*/
-    alert("hola");
+    var X : Text = document.createTextNode("X: " + evento.clientX);
+    var Y : Text = document.createTextNode("Y: " + evento.clientY);
+    (<HTMLDivElement>document.getElementById("divCoordenadas")).appendChild(X);
+    (<HTMLDivElement>document.getElementById("divCoordenadas")).appendChild(Y);
+   
 }
