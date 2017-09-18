@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<title>Ejemplos JSON</title>
+	  
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link href="../img/utnLogo.png" rel="icon" type="image/png" />
+		
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/animacion.css">		
+		
+		<!-- Estilos propios -->
+		<link rel="stylesheet" type="text/css" href="../css/estilo.css">
+
+		<!-- Funciones Propias -->
+		<script src="../manejadora.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h1>JSON - B&aacute;sico</h1>      
+		</div>
+		<div class="CajaInicio animated bounceInLeft">
+			<h1>Ejemplos JSON</h1>
+			<a href="#" class="list-group-item list-group-item list-group-item-info">
+				<h4 class="list-group-item-heading">JSON</h4>
+				<p class="list-group-item-text" onclick="Test.EjemplosJSON(1)">Json simple - objeto -</p>										
+				<p class="list-group-item-text" onclick="Test.EjemplosJSON(2)">Json simple - array -</p>	
+				<hr/>									
+				<p class="list-group-item-text" onclick="Test.EjemplosJSON(3)">Json - JSON.parse -</p>										
+				<p class="list-group-item-text" onclick="Test.EjemplosJSON(4)">Json - JSON.stringify -</p>
+				<hr/>										
+				<p class="list-group-item-text" onclick="Test.EjemplosJSON(5)">Json - con funciones -</p>										
+				<p class="list-group-item-text" onclick="Test.EjemplosJSON(6)">Json complejo - con funciones -</p>
+			</a>
+			<a href="../index.html" class="list-group-item list-group-item list-group-item-info">Volver</a>
+		</div>
+			
+		<div id="divResultado" class="CajaInicio"></div>
+		
+	</div>
+</body>
+</html>

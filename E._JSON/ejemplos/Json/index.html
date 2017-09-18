@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<title>Ejemplos JSON</title>
+	  
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+				
+		<link href="../img/utnLogo.png" rel="icon" type="image/png" />
+		
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/animacion.css">		
+		
+		<!-- Estilos propios -->
+		<link rel="stylesheet" type="text/css" href="../css/estilo.css">
+
+		<!-- Funciones Propias -->
+		<script src="../manejadora.js"></script>
+		<script src="../testJsonAjax.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h1>JSON Complejo</h1>      
+		</div>
+		<div class="CajaInicio animated bounceInLeft">
+			<h1>Ejemplos JSON</h1>
+				<a href="#" class="list-group-item list-group-item list-group-item-info">
+				  <h4 class="list-group-item-heading">JSON y PHP</h4>
+				  <p class="list-group-item-text" onclick="Test.IrHacia('../BACKEND/jsonObj.php')">Crear Json(stdClass) desde PHP</p>
+				  <p class="list-group-item-text" onclick="Test.IrHacia('../BACKEND/jsonArray.php')">Crear Json(array) desde PHP</p>
+				</a>
+				<a href="#" class="list-group-item list-group-item list-group-item-info">
+				  <h4 class="list-group-item-heading">JSON y AJAX</h4>
+				  <p class="list-group-item-text" onclick="Test.EnviarJSON()">Enviar Json por Ajax</p>
+				  <p class="list-group-item-text" onclick="Test.RecibirJSON()">Recibir Json desde Ajax</p>
+				</a>	
+				<a href="#" class="list-group-item list-group-item list-group-item-info">
+				  <h4 class="list-group-item-heading">Listados Din&aacute;micos</h4>
+				  <p class="list-group-item-text" onclick="Test.IrHacia('jsonAjax.php')">Cargar Listados Json con Ajax</p>
+				</a>
+			<a href="../index.html" class="list-group-item list-group-item list-group-item-info">Volver</a>
+		</div>
+			
+		<div id="divResultado" class="CajaInicio"></div>
+		
+	</div>
+</body>
+</html>
