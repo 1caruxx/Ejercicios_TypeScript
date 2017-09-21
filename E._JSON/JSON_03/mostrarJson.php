@@ -6,7 +6,6 @@
 
     //=====================================
 
-    $objeto = new stdClass();
     $objeto = json_decode($_REQUEST["json"]);
 
     echo "\nNombre: ".$objeto->nombre." en PHP".

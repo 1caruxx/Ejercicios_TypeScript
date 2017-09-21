@@ -6,9 +6,7 @@
     }
     else {
 
-        $objeto =
-
-        echo  json_decode(fgets($archivo));
+        echo fgets($archivo);
 
         fclose($archivo);
     }
