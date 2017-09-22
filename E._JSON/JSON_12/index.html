@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicico 11</title>
+    <script src="./json.js"></script>
+</head>
+<body>
+    <input type="text" id="txtId" placeholder="Ingrese ID"/><br/><br/>
+    <input type="text" id="txtNombre" placeholder="Ingrese nombre"/><br/><br/>
+    <input type="text" id="txtCountry" placeholder="Ingrese country"/><br/><br/>
+    <input type="text" id="txtLongitud" placeholder="Ingrese longitud"/><br/><br/>
+    <input type="text" id="txtLatitud" placeholder="Ingrese latitud"/><br/><br/>
+    <input type="button" onclick="GenerarTabla()" value="Generar tabla"/>
+    <input type="button" onclick="Agregar()" value="Agregar"/>
+    <table border="1" align="center" id="table">
+        <tbody >
+            <thead>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Country</th>
+                <th>Longitud</th>
+                <th>Latitud</th>
+                <th>Accion</th>
+            </thead>
+        </tbody>
+   </table>
+</body>
+</html>
