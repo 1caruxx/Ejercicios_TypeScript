@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery y JavaScript</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="./img/utnLogo.png" rel="icon" type="image/png" />
+
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/animacion.css">		
+		
+		<!-- Estilos propios -->
+		<link rel="stylesheet" type="text/css" href="css/estilo.css">
+
+        <!-- AGREGO LA LIBRERIA DE JQUERY -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+        <!-- AGREGO FUNCIONES PROPIAS CON USO DE JQUERY -->
+        <script type="text/javascript" src="funciones_jQuery.js"></script>
+        
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <h1>JQUERY</h1>      
+            </div>
+            <div class="CajaInicio animated bounceInRight">
+                <h1>Ejemplos jQuery - JavaScript</h1>
+
+                <p>
+                    El uso de jQuery es sencillo
+                </p>
+                <p id="idP">
+                    Es un framework muy poderoso
+                </p>
+
+                <input type="button" onclick="ModificarPs()" value="Modificar Todos los P con jQuery"/>
+                <br>
+                <input type="button" onclick="ModificarPorId()" value="Modificar por ID con jQuery"/>
+                
+                <br>
+                <hr>
+                <br>
+                
+                <input type="text" id="txtNombre" placeholder="Ingrese un nombre..." >
+                <br>
+                
+                <select id="cboSeleccion">
+                    <option value="op1">OPCION 1</option>
+                    <option value="op2">OPCION 2</option>
+                    <option value="op3">OPCION 3</option>
+                    <option>OPCION SIN VALUE</option>
+                </select>
+                <br>
+
+                <input type="button" onclick="MostrarDatos()" value="Test jQuery"/>
+                <br>
+                <br>
+                
+                <div id="idDiv">
+                    Contenido en DIV
+                </div>
+                
+                <br>
+                <hr>
+
+                <input type="button" onclick="CambiarDatos()" value="Cambiar Datos"/>
+            </div>
+        </div>
+    </body>
+</html>

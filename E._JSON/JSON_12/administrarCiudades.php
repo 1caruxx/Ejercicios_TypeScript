@@ -27,20 +27,29 @@
 
                 $JSON = ObtenerElementos();
                 $i=0;
+                
                 if(!@$archivo = fopen("./city.list.min.json" , "w")) {
 
-                     foreach($JSON as $item) {
+                    echo "No se pudo abrir el archivo.";
+                }
+                else {
 
-                         if($item->_id == $_REQUEST["id"]) {
-
-                             unset($JSON[$i]);
+                    foreach($JSON as $item) {
+                        
+                        if($item->_id == $_REQUEST["id"]) {
+                            
+                            unset($JSON[$i]);
                         }
-                        fwrite($archivo , $JSON[$i]);
+
+                        if(isset($JSON[$i])){
+
+                            fwrite($archivo , json_encode($JSON[$i])."\r\n");
+                        }
+
                         $i++;
                     }
-
+                    header('Location: ./');
                 }
-                
     }
 
     function ObtenerElementos() {

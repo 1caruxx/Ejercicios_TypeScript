@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery y TypeScript</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	    <link href="./img/utnLogo.png" rel="icon" type="image/png" />
+
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/animacion.css">		
+		
+		<!-- Estilos propios -->
+		<link rel="stylesheet" type="text/css" href="css/estilo.css">
+
+        <!-- AGREGO LA LIBRERIA DE JQUERY -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+        <!-- AGREGO FUNCIONES PROPIAS CON USO DE JQUERY -->
+        <script type="text/javascript" src="typescript_jQuery.js"></script>
+        
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <h1>JQUERY - TYPESCRIPT</h1>      
+            </div>
+            <div class="CajaInicio animated bounceInRight">
+                <h1>Ejemplos Sencillos</h1>
+
+                <p id="idP">
+                    Ejemplo de jQuery con TypeScript
+                </p>
+
+                <input type="button" onclick="Main.ModificarPorId()" value="Modificar por ID con jQuery"/>
+                
+                <br>
+                <hr>
+                
+                <input type="text" id="txtNombre" placeholder="Ingrese un nombre..." >
+                <br>
+                
+                <select id="cboSeleccion">
+                    <option value="op1">OPCION 1</option>
+                    <option value="op2">OPCION 2</option>
+                    <option value="op3">OPCION 3</option>
+                    <option>OPCION SIN VALUE</option>
+                </select>
+                <br>
+
+                <input type="button" onclick="Main.MostrarDatos()" value="Test jQuery - TypeScript"/>
+                <br>
+                <br>
+                
+                <div id="idDiv">
+                    Contenido en DIV
+                </div>
+
+                <hr>
+
+                <input type="button" onclick="Main.CambiarDatos()" value="Cambiar Datos"/>
+            </div>
+            <div class="CajaInicio animated bounceInLeft">
+                <h1>Ejemplos con $.ajax y TypeScript</h1>
+
+                <a href="#" class="list-group-item list-group-item list-group-item-info">
+                    <p class="list-group-item-text" onclick="Main.JqueryAjax()">Utilizaci&oacute;n de $.ajax()</p>
+                    <p class="list-group-item-text" onclick="Main.JqueryAjaxConParametrosString()">$.ajax() con par&aacute;metros 'string'</p>
+                    <p class="list-group-item-text" onclick="Main.JqueryAjaxConParametrosJSON()">$.ajax() con par&aacute;metros 'JSON'</p>
+                    <p class="list-group-item-text" onclick="Main.JqueryAjaxRetornoJSON()">$.ajax() con retorno 'JSON'</p>
+                </a>
+
+            </div>
+            <div id="divResultado"></div>
+        </div>
+    </body>
+</html>

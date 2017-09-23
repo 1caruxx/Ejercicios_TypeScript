@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery y Ajax</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/animacion.css">		
+		
+        <link href="./img/utnLogo.png" rel="icon" type="image/png" />
+
+        <!-- Estilos propios -->
+		<link rel="stylesheet" type="text/css" href="css/estilo.css">
+
+        <!-- AGREGO LA LIBRERIA DE JQUERY -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+        <!-- AGREGO FUNCIONES PROPIAS CON USO DE JQUERY -->
+        <script type="text/javascript" src="funciones_ajax_jQuery.js"></script>
+        
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <h1>JQUERY - AJAX</h1>      
+            </div>
+            <div class="CajaInicio animated bounceInRight">
+                <h1>Ejemplos jQuery - Ajax</h1>
+
+                <a href="#" class="list-group-item list-group-item list-group-item-info">
+                    <p class="list-group-item-text" onclick="JqueryAjax()">Utilizaci&oacute;n de $.ajax()</p>
+                    <p class="list-group-item-text" onclick="JqueryAjaxConParametrosString()">$.ajax() con par&aacute;metros 'string'</p>
+                    <p class="list-group-item-text" onclick="JqueryAjaxConParametrosJSON()">$.ajax() con par&aacute;metros 'JSON'</p>
+                    <p class="list-group-item-text" onclick="JqueryAjaxRetornoJSON()">$.ajax() con retorno 'JSON'</p>
+                </a>
+
+            </div>
+            <div id="divResultado"></div>
+        </div>
+    </body>
+</html>
