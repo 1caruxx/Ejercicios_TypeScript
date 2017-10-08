@@ -1,0 +1,38 @@
+body {
+
+    background-color : yellow;
+}
+
+span {
+
+    background : pink;
+    font-size : 22px;
+    color : violet;
+    font-family : tahoma;
+    font-weight : bold;
+    font-style : italic;
+}
+
+input[type="button"] {
+
+    font-family : verdana;
+    font-size : 25px;
+    color : blue;
+    background : #00EEFF;
+}
+
+.sinFoco {
+
+    size : 30px;
+    font : arial;
+    background : white;
+    color : black;
+}
+
+input[type="text"]:focus {
+    
+    font-size : 35px;
+    font : verdana;
+    background : black;
+    color : white;
+}
