@@ -1,0 +1,33 @@
+.verdana {
+    font-family: verdana;
+}
+
+h1 {
+    text-align: center; 
+}
+
+h4 {
+    text-align: center;
+}
+
+hr {
+    width: 50%;
+}
+
+p {
+    width: 700px;
+    text-align:justify;
+}
+
+p:first-letter {
+    font-family: 'Times New Roman';
+    font-weight: bolder;
+    font-size: 50px;
+    color: orange;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+    float: left;
+}

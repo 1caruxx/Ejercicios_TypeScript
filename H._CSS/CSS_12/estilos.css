@@ -1,0 +1,11 @@
+* {
+    font-size: 16px;
+    font-family: verdana;
+    font-weight: bolder;
+    color: #0000aa;
+}
+
+*:hover {
+    padding-left: 5px; 
+}
+ 

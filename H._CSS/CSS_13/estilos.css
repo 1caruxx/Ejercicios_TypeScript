@@ -1,0 +1,8 @@
+a {
+    text-decoration: line-through;
+}
+
+a:link {
+    text-decoration: line-through;
+}
+ 

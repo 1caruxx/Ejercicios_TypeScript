@@ -1,0 +1,18 @@
+div {
+    width: 50%;
+    height: 100%;
+}
+
+div.Izquierda {
+    background-color: rgb(224, 187, 121);
+    float: left;
+}
+
+div.Derecha {
+    background-color: rgb(250, 161, 177);
+    float: right;
+}
+
+span {
+    text-decoration: underline;
+}

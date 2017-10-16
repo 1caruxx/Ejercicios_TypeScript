@@ -1,0 +1,18 @@
+span {
+    text-transform: uppercase;
+}
+
+span.Chico {
+    letter-spacing: 1px;
+    word-spacing: 2px;
+}
+
+span.Medio {
+    letter-spacing: 2px;
+    word-spacing: 5px;
+}
+
+span.Grande {
+    letter-spacing: 5px;
+    word-spacing: 10px;
+}

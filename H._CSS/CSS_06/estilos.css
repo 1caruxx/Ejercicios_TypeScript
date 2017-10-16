@@ -1,0 +1,23 @@
+h4 {
+    font-family: verdana;
+    text-align: center;
+}
+
+hr {
+    width: 50%;
+}
+
+ol {
+    font-family: verdana;
+}
+
+li {
+    color: pink;
+    font-weight: bold;
+}
+
+a:hover {
+    padding-left: 10px;
+    transition: 50ms;
+}
+
