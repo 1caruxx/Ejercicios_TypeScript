@@ -18,13 +18,18 @@ var Entidades;
             var _this = _super.call(this, nombre, apellido, edad) || this;
             _this.dni = dni;
             _this.pais = pais;
-            if (foto && foto != "") {
+            if (foto != "" && foto) {
                 _this.foto = foto;
             }
             return _this;
         }
-        Ciudadano.prototype.ToString = function () {
-            return "{\"datosPersonales\" : " + _super.prototype.ToString.call(this) + " , \"datosCiviles\" : {\"dni\" : " + this.dni + "} , \"pais\" : " + this.pais + " , \"foto\" : " + this.foto + "}}";
+        Ciudadano.prototype.ToJSON = function () {
+            /*
+             * Las claves del JSON siempre entrecomilladas.
+             * Los valores tambien entrecomillados, incluso aunque se trate de una variable que contenga un string.
+             * Si es un valor numerico, nunca va entrecomillado.
+             */
+            return "{\"datosPersonales\":" + _super.prototype.ToJSON.call(this) + " , \"datosCiviles\":{\"dni\":" + this.dni + " , \"foto\":\"" + this.foto + "\" , \"pais\":\"" + this.pais + "\"}}";
         };
         return Ciudadano;
     }(Entidades.Persona));

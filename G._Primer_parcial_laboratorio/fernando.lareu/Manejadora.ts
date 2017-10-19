@@ -1,3 +1,4 @@
+/// <reference path="./node_modules/@types/jquery/index.d.ts"/>
 /// <reference path="./Persona.ts"/>
 /// <reference path="./Ciudadano.ts"/>
 
@@ -5,83 +6,238 @@ namespace Entidades {
 
     export class Manejadora {
 
-        public static agregarCiudadano () {
+        public static AgregarCiudadano() {
 
-            var nombre : string = (<HTMLInputElement>document.getElementById("txtNombre")).value;
-            var apellido : string = (<HTMLInputElement>document.getElementById("txtApellido")).value;
-            var edad : number = parseInt((<HTMLInputElement>document.getElementById("txtEdad")).value);
-            var dni : number = parseInt((<HTMLInputElement>document.getElementById("txtDni")).value);            
-            var pais : string = (<HTMLSelectElement>document.getElementById("cboPais")).value;
-            var xhttp : XMLHttpRequest = new XMLHttpRequest();
+            let nombre : string = <string>$("#txtNombre").val();
+            let apellido : string = <string>$("#txtApellido").val();
+            let edad : number = parseInt(<string>$("#txtEdad").val());
+            let dni : number = parseInt(<string>$("#txtDni").val());
+            let pais : string = <string>$("#cboPais").val();
+            let ciudadano : Ciudadano = new Ciudadano(nombre , apellido , edad , dni , pais);
 
-            var ciudadano : Entidades.Ciudadano = new Entidades.Ciudadano(nombre , apellido , edad , dni , pais);
+            let archivo : any = (<HTMLInputElement>document.getElementById("foto"));
+            let formData : FormData = new FormData();
+            formData.append("foto" , archivo.files[0]);
+            formData.append("accion" , "agregar");
+            formData.append("json" , ciudadano.ToJSON());
 
-            xhttp.open("get" , "./admin.php?accion=agregar&json="+ciudadano.ToString());
-            xhttp.send();
+            $.ajax({
+
+                type : "POST",
+                url : "./admin.php",
+                dataType : "text",
+                /*
+                 * Si no se ponen estas tres lineas, en consola se vera un errore de la libreria jQuery
+                 */ 
+                cache: false,
+                contentType: false,
+                processData: false,
+                data : formData,
+                async : true
+            })
+            .done(function(respuesta) {
+
+                alert(respuesta);
+            });
         }
 
-        public static mostrarCiudadanos() {
+        public static MostrarCiudadanos() {
 
-            var xhttp : XMLHttpRequest = new XMLHttpRequest();     
-            var div = (<HTMLDivElement>document.getElementById("divTabla"));
-            
-            xhttp.open("get" , "./admin.php?accion=listar");
-            xhttp.send();
+            /*
+             * No se usa la sintaxis de jQuery por que esta no permite acceder a la propiedad innerHTML.
+             */
+            var div= (<HTMLInputElement>document.getElementById("divTabla"));
 
-            xhttp.onreadystatechange = () => {
+            $.ajax({
+                type : "POST",
+                url : "./admin.php",
+                dataType : "json",
+                data : "accion=listar",
+                async: true
+            })
+            .done(function(respuesta) {
 
-                if(xhttp.readyState == 4 && xhttp.status == 200) {
+                let stringAux = `<table>
+                                    <tbody>
+                                        <thead>
+                                            <th>Nombre</th>
+                                            <th>Apellido</th>
+                                            <th>Edad</th>
+                                            <th>DNI</th>
+                                            <th>Pais<th>
+                                            <th>Foto</th>
+                                            <th>Accion</th>
+                                        </thead>`;
+                
+                for(let item of respuesta) {
 
-                    var json = JSON.parse(xhttp.responseText);
-
-                    var cadenaAuxiliar : string = "<table><tbody><thead><th>Nombre</th><th>Apellido</th><th>Edad</th><th>DNI</th><th>Pais</th><th>Imagen</th><th>Accion</th></thead>";
-
-                    for(let item of json) {
-
-                        cadenaAuxiliar += `<tr><td>${(item.datosPersonales).nombre}</td>
-                        <td>${(item.datosPersonales).apellido}</td>
-                        <td>${(item.datosPersonales).edad}</td>
-                        <td>${(item.datosCiviles).dni}</td>
-                        <td>${(item.datosCiviles).pais}</td>
-                        <td><img src='${(item.datosCiviles).foto}'/></td>
-                        <td><input type='button' value='eliminar' onclick='eliminarCiudadano(${(item.datosCiviles).dni})'/>
-                        <input type='button' value='modificar' onclick='modificarCiudadano(${(item.datosPersonales).nombre} , ${(item.datosPersonales).apellido} , ${(item.datosPersonales).edad}, ${(item.datosCiviles).dni} , ${(item.datosCiviles).pais}'/></td>
-                        </tr>`;
-                    }
-
-                    cadenaAuxiliar += `</tbody></table>`;
-                    div.innerHTML = cadenaAuxiliar;
+                    stringAux += `<tr>
+                                      <td>${(item.datosPersonales).nombre}</td>
+                                      <td>${(item.datosPersonales).apellido}</td>
+                                      <td>${(item.datosPersonales).edad}</td>
+                                      <td>${(item.datosCiviles).dni}</td>
+                                      <td>${(item.datosCiviles).pais}</td>
+                                      <td><img src="./BACKEND/fotos/${(item.datosCiviles).foto}" width="100px" height="100px"/></td>
+                                      <td>
+                                          <input type="button" value="Eliminar" onclick="Entidades.Manejadora.EliminarCiudadano(${(item.datosCiviles).dni})"/>
+                                          <input type="button" value="Modificar" onclick="Entidades.Manejadora.ModificarCiudadano('${(item.datosPersonales).nombre}' , '${(item.datosPersonales).apellido}' , '${(item.datosPersonales).edad}' , '${(item.datosCiviles).dni}' , '${(item.datosCiviles).pais}')"/>
+                                      </td>
+                                  </tr>`;
                 }
-            } 
+
+                stringAux += `</tbody>
+                            </table>`;
+                /*
+                 * Es necesario primero guardar toda la estructura del table en una variable auxiliar (en este caso stringAux) por que no se puede concatenar valores en la propiedad .innerHTML.
+                 */
+                div.innerHTML = stringAux;
+            })
+            .fail(function (respuesta) {
+
+                alert("Algo salio mal.");
+                alert(respuesta);
+            });
+        }
+        
+        public static EliminarCiudadano(dni:string) {
+
+            let parametros = `accion=eliminar&dni=${dni}`;
+
+            $.ajax({
+                type : "POST",
+                url : "./admin.php",
+                dataType : "text",
+                data : parametros,
+                async : true
+            })
+            .done(function(respuesta) {
+
+                alert(respuesta);
+            })
+            .fail(function(respuesta) {
+
+                alert("Algo salio mal.");
+                alert(respuesta);
+            });
         }
 
-        public static eliminarCiudadano(dni:string) {
+        public static ModificarCiudadano(nombre:string , apellido:string , edad:string , dni:string , pais:string) {
 
-            var xhttp : XMLHttpRequest = new XMLHttpRequest();     
+            $("#txtNombre").val(nombre);
+            $("#txtApellido").val(apellido);
+            $("#txtEdad").val(edad);
+            $("#cboPais").val(pais);
 
-            xhttp.open("get" , "./admin.php?accion=eliminar&dni="+dni);
-            xhttp.send();
+            $("#btnConfirmar").click(function() {
+
+                let vNombre = <string>$("#txtNombre").val();
+                let vApellido = <string>$("#txtApellido").val();
+                let vEdad = parseInt(<string>$("#txtEdad").val());
+                let vPais = <string>$("#cboPais").val();
+    
+                let ciudadano = new Ciudadano(vNombre , vApellido , vEdad , parseInt(dni) , vPais);
+    
+                let archivo : any = (<HTMLInputElement>document.getElementById("foto"));
+                let formData : FormData = new FormData();
+                formData.append("foto",archivo.files[0]);
+                formData.append("accion", "modificar");
+                formData.append("json", ciudadano.ToJSON());
+    
+                $.ajax({
+                    type : "POST",
+                    url : "./admin.php",
+                    dataType : "text",
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data : formData,
+                    async : true
+                })
+                .done(function(respuesta) {
+                    
+                    
+                })
+                .fail(function(respuesta) {
+    
+                    alert("Algo salio mal.");
+                    alert(respuesta);
+                });
+            });
         }
 
-        public static modificarCiudadano(nombre:string , apellido:string , edad:string , dni:string , pais:string) {
+        public static FiltrarPorPais() {
 
-            (<HTMLInputElement>document.getElementById("txtNombre")).value = nombre;
-            (<HTMLInputElement>document.getElementById("txtApellido")).value = apellido;
-            (<HTMLInputElement>document.getElementById("txtEdad")).value = edad;
-            (<HTMLInputElement>document.getElementById("txtDni")).value = dni;            
-            (<HTMLSelectElement>document.getElementById("cboPais")).value = pais;
+            var div= (<HTMLInputElement>document.getElementById("divTabla"));
+            let pais = <string>$("#cboPais").val();
+            let parametros = `accion=filtrar&pais=${pais}`
 
-            var vNombre : string = (<HTMLInputElement>document.getElementById("txtNombre")).value;
-            var vApellido : string = (<HTMLInputElement>document.getElementById("txtApellido")).value;
-            var vEdad : number = parseInt((<HTMLInputElement>document.getElementById("txtEdad")).value);
-            var vDni : number = parseInt((<HTMLInputElement>document.getElementById("txtDni")).value);            
-            var vPais : string = (<HTMLSelectElement>document.getElementById("cboPais")).value;
-            var xhttp : XMLHttpRequest = new XMLHttpRequest();
+            $.ajax({
+                type : "POST",
+                url : "./admin.php",
+                dataType : "json",
+                data : parametros,
+                async : true
+            })
+            .done(function(respuesta) {
 
-            var ciudadano : Entidades.Ciudadano = new Entidades.Ciudadano(vNombre , vApellido , vEdad , vDni , vPais);
+                let stringAux = `<table>
+                <tbody>
+                    <thead>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Edad</th>
+                        <th>DNI</th>
+                        <th>Pais<th>
+                        <th>Foto</th>
+                        <th>Accion</th>
+                    </thead>`;
 
-            xhttp.open("get" , "./admin.php?accion=modificar&json="+ciudadano.ToString());
+                for(let item of respuesta) {
 
+                stringAux += `<tr>
+                                <td>${(item.datosPersonales).nombre}</td>
+                                <td>${(item.datosPersonales).apellido}</td>
+                                <td>${(item.datosPersonales).edad}</td>
+                                <td>${(item.datosCiviles).dni}</td>
+                                <td>${(item.datosCiviles).pais}</td>
+                                <td><img src="./BACKEND/fotos/${(item.datosCiviles).foto}" width="100px" height="100px"/></td>
+                                <td>
+                                    <input type="button" value="Eliminar" onclick="Entidades.Manejadora.EliminarCiudadano(${(item.datosCiviles).dni})"/>
+                                    <input type="button" value="Modificar" onclick="Entidades.Manejadora.ModificarCiudadano('${(item.datosPersonales).nombre}' , '${(item.datosPersonales).apellido}' , '${(item.datosPersonales).edad}' , '${(item.datosCiviles).dni}' , '${(item.datosCiviles).pais}')"/>
+                                </td>
+                            </tr>`;
+                }
+
+                stringAux += `</tbody>
+                        </table>`;
+                /*
+                * Es necesario primero guardar toda la estructura del table en una variable auxiliar (en este caso stringAux) por que no se puede concatenar valores en la propiedad .innerHTML.
+                */
+                div.innerHTML = stringAux;
+            })
+        }
+
+        public static PreVisualizar() {
+
+            let archivo : any = (<HTMLInputElement>document.getElementById("foto"));
+            let formData : FormData = new FormData();
+            formData.append("foto",archivo.files[0]);
+            formData.append("accion", "previsualizar");
+
+            $.ajax({
+                type : "POST",
+                url : "./admin.php",
+                dataType : "text",
+                cache: false,
+                contentType: false,
+                processData: false,
+                data : formData,
+                async: true
+            })
+            .done(function (resultado) {
+
+                $("#imagen").attr("src" , resultado);
+            });
         }
     }
 }

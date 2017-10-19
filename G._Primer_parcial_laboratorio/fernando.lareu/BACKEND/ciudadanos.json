@@ -1,0 +1,3 @@
+{"datosPersonales":{"nombre":"fernando","apellido":"lareu","edad":19,"dni":1,"pais":"Argentina"},"datosCiviles":{"dni":1,"foto":"191221.jpg","pais":"Argentina"}}
+{"datosPersonales":{"nombre":"cristiano","apellido":"ronaldo","edad":23,"dni":2,"pais":"Brasil"},"datosCiviles":{"dni":2,"foto":"191238.jpeg","pais":"Brasil"}}
+{"datosPersonales":{"nombre":"pedro","apellido":"miguel","edad":45,"dni":3,"pais":"Uruguay"},"datosCiviles":{"dni":3,"foto":"191337.jpg","pais":"Uruguay"}}

@@ -7,8 +7,12 @@ var Entidades;
             this.apellido = apellido;
             this.edad = edad;
         }
-        Persona.prototype.ToString = function () {
-            return "{\"nombre\" : " + this.nombre + "} , \"apellido\" : " + this.apellido + " , \"edad\" : " + this.edad + "}";
+        Persona.prototype.ToJSON = function () {
+            /*
+             * El equivalente seria return `{"nombre":"${this.nombre}" , "apellido":"${this.apellido}" , "edad":${this.edad}}`
+             * No puede haber llaves que no correspondan.
+             */
+            return JSON.stringify(this);
         };
         return Persona;
     }());

@@ -1,117 +1,173 @@
 <?php
 
-    switch($_GET["accion"]) {
+    switch($_POST["accion"]) {
 
         case 'agregar':
 
-            if(!@ $archivo = fopen("./BACKEND/ciudadanos.json" , "a")) {
-
-                echo "No se pudo abrir el archivo.";
-            }
-            else {
-
-                $ruta = "./BACKEND/fotos/".date("Gis");
-
-                $json = json_decode($_GET["json"]);
-                $json->foto = $ruta;
-                $jsonCadena = json_encode($json);
-
-                fwrite($archivo , $jsonCadena."\r\n");
-                move_uploaded_file($_FILES["foto"]["tmp_name"] , $ruta);
-            }
+            agregar();
             break;
 
         case 'listar':
 
-            echo json_encode(ObtenerElementos());
+            echo json_encode(array_filter(ObtenerElementos()));
             break;
+
         case 'eliminar':
-            $JSON = ObtenerElementos();
-            $i=0;
-            
-            if(!@$archivo = fopen("./BACKEND/ciudadanos.json" , "w")) {
-
-                echo "No se pudo abrir el archivo.";
-            }
-            else {
-                foreach($JSON as $item) {
-                    
-                    if(/*($item->datosCiviles)->dni*/$item->datosCiviles->dni == $_REQUEST["dni"]) {
-                        
-                        unset($JSON[$i]);
-                        unlink(($item->datosCiviles)->foto);
-                    }
-
-                    if(isset($JSON[$i])){
-
-                        fwrite($archivo , trim(json_encode($JSON[$i]))."\r\n");
-                    }
-
-                    $i++;
-                }
-                
-                break;
-
-        case 'modificar':
-
-            $JSON = ObtenerElementos();
-            $JSONModificado = $_GET["json"];
-            $ruta = "./BACKEND/fotos/".date("Gis");
-            $encontrado = false;
-
-            $i=0;
-            
-            if(!@$archivo = fopen("./BACKEND/ciudadanos.json" , "w")) {
-
-                echo "No se pudo abrir el archivo.";
-            }
-            else {
-
-                foreach($JSON as $item) {
-                    
-                    if(/*($item->datosCiviles)->dni*/$item->datosCiviles->dni == $_REQUEST["dni"]) {
-                        
-                        ($JSON[$i]->datosPersonales)->nombre = ($JSONModificado->datosPersonales)->nombre;
-                        ($JSON[$i]->datosPersonales)->apellido = ($JSONModificado->datosPersonales)->apellido;
-                        ($JSON[$i]->datosPersonales)->edad = intval(($JSONModificado->datosPersonales)->edad);
-                        ($JSON[$i]->datosCiviles)->dni = intval(($JSONModificado->datosCiviles)->dni);
-                        ($JSON[$i]->datosCiviles)->pais = ($JSONModificado->datosCiviles)->pais;
-                        ($JSON[$i]->datosCiviles)->foto = $ruta;
-                        $encontrado = true;
-                    }
-
-                    if(isset($JSON[$i])){
-
-                        fwrite($archivo , trim(json_encode($JSON[$i]))."\r\n");
-                    }
-
-                    $i++;
-                }
-
-                if($encontrado) {
-
-                    move_uploaded_file($_FILES["foto"]["tmp_name"] , $ruta);
-                }
-                
+            eliminar();
             break;
+        
+        case 'modificar':
+            Modificar();
+            break;
+        
+        case 'filtrar':
+            filtrar();
+            break;
+        
+        case 'previsualizar':
+            PreViusualizar();
     }
 
     function ObtenerElementos() {
 
-        if(@!$archivo = fopen("./BACKEND/ciudadanos.json" , "r")) {
-            
-            echo "No se pudo abrir el archivo.";
+        if(!@ $archivo = fopen("./BACKEND/ciudadanos.json" , "r")) {
+
+            echo "No se ha podido abrir el archivo.";
         }
         else {
 
-            $JSON = array();
-                            
+            $lista = array();
+
             while(!feof($archivo)) {
-            
-                array_push($JSON , json_decode(trim(fgets($archivo))));
+
+                array_push($lista , json_decode(trim(fgets($archivo))));
             }
 
             fclose($archivo);
-            return $JSON;
+            return $lista;
         }
+    }
+
+    function Agregar() {
+
+        if(!@ $archivo = fopen("./BACKEND/ciudadanos.json" , "a")) {
+
+            echo "No se ha podido abrir el archivo.";
+        }
+        else {
+
+            $elemento = json_decode($_POST["json"]);
+            $nombreFoto = date("Gis").".".pathinfo($_FILES["foto"]["name"] , PATHINFO_EXTENSION);
+            $rutaFoto = "./BACKEND/fotos/".$nombreFoto;
+            $elemento->datosCiviles->foto = $nombreFoto;
+
+            fwrite($archivo , json_encode($elemento)."\r\n");
+            fclose($archivo);
+            move_uploaded_file($_FILES["foto"]["tmp_name"] , $rutaFoto);
+
+            echo "Se ha agregado correctamente.";
+        }
+    }
+
+    function Eliminar() {
+
+        /*
+         * La funcion ObtenerElementos() abre el archivo y lo cierra. Si intento invocarla adentro del else, estare abriendo un archivo ya abierto y genera error.
+         */
+        $lista = ObtenerElementos();
+        $contador = 0;
+
+        if(!@ $archivo = fopen("./BACKEND/ciudadanos.json" , "w")) {
+            
+            echo "No se ha podido abrir el archivo.";
+        }
+        else {
+
+            foreach($lista as $item) {
+
+                if(@$item->datosCiviles->dni == $_POST["dni"]) {
+
+                    unset($lista[$contador]);
+                    unlink("./BACKEND/fotos/".$item->datosCiviles->foto);
+                }
+
+                if(isset($lista[$contador])) {
+
+                    fwrite($archivo , trim(json_encode($lista[$contador]))."\r\n");
+                }
+
+                $contador++;
+            }
+
+            fclose($archivo);
+            echo "Se ha dado de baja correctamente.";
+        }
+    }
+
+    function Modificar() {
+
+        $lista = ObtenerElementos();
+        /*
+         * Es importante usar el json_decode() en $_POST["json"] por que se recibe como un string.
+         */
+        $objetoModifcado = json_decode($_POST["json"]);
+        $nombreFoto = date("Gis").".".pathinfo($_FILES["foto"]["name"] , PATHINFO_EXTENSION);
+        $rutaFoto = "./BACKEND/fotos/".$nombreFoto;
+        $contador = 0;
+        $encontrado = false;
+
+        if(!@ $archivo = fopen("./BACKEND/ciudadanos.json" , "w")) {
+
+            echo "No se ha podido abrir el archivo.";
+        }
+        else {
+
+            foreach($lista as $item) {
+
+                if(@$item->datosCiviles->dni == $objetoModifcado->datosCiviles->dni) {
+
+                    unlink("./BACKEND/fotos/".$item->datosCiviles->foto);
+                    $lista[$contador] = $objetoModifcado;
+                    $lista[$contador]->datosCiviles->foto = $nombreFoto;
+                    $encontrado = true;
+                }
+
+                if(isset($lista[$contador])) {
+
+                    fwrite($archivo , json_encode($lista[$contador])."\r\n");
+                }
+
+                $contador++;
+            }
+
+            if($encontrado) {
+
+                move_uploaded_file($_FILES["foto"]["tmp_name"] , $rutaFoto);
+            }
+
+            fclose($archivo);
+        }
+    }
+
+    function Filtrar() {
+
+        $lista = ObtenerElementos();
+        $listaFiltrada = array();
+        $pais = $_POST["pais"];
+
+        foreach($lista as $item) {
+
+            if(@$item->datosCiviles->pais == $pais) {
+
+                array_push($listaFiltrada , $item);
+            }
+        }
+
+        echo json_encode($listaFiltrada);
+    }
+
+    function PreViusualizar() {
+
+        echo pathinfo($_FILES["foto"]["tmp_name"] , PATHINFO_DIRNAME).pathinfo($_FILES["foto"]["tmp_name"] , PATHINFO_FILENAME).".".pathinfo($_FILES["foto"]["name"], PATHINFO_EXTENSION);
+    }
 ?>

@@ -44,13 +44,15 @@
 				</tr>
 				<tr>
 					<td>Foto:</td>
-					<td><input type="file" name="foto" /></td>
+					<td><input type="file" id="foto" onchange="Entidades.Manejadora.PreVisualizar()"/></td>
 				</tr>
 				<tr>
 					<td colspan="2">
-						<input type="button" class="btn btn-success" value="Agregar" onclick="Entidades.Manejadora.agregarCiudadano()"/>
-          					<input type="button" class="btn btn-primary" value="Mostrar" onclick="Entidades.Manejadora.mostrarCiudadanos()"/>
-						<input type="button" class="btn btn-default" value="Filtrar por Pais" onclick="">
+						<input type="button" class="btn btn-success" value="Agregar" onclick="Entidades.Manejadora.AgregarCiudadano()"/>
+          					<input type="button" class="btn btn-primary" value="Mostrar" onclick="Entidades.Manejadora.MostrarCiudadanos()"/>
+						<input type="button" class="btn btn-default" value="Filtrar por Pais" onclick="Entidades.Manejadora.FiltrarPorPais()">
+						<input type="button"class="btn btn-default" value="Confirmar cambios" id="btnConfirmar"/><br/>
+						<img src="" id="imagen"/>
 					</td>
 				</tr>
 			</table>

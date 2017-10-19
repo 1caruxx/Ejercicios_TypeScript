@@ -2,7 +2,7 @@
 
 namespace Entidades {
 
-    export class Ciudadano extends Entidades.Persona {
+    export class Ciudadano extends Persona {
 
         public dni : number;
         public pais : string;
@@ -14,15 +14,21 @@ namespace Entidades {
             this.dni = dni;
             this.pais = pais;
 
-            if(foto && foto!="") {
+            if(foto != "" && foto)
+            {
 
                 this.foto = foto;
             }
         }
 
-        public ToString() : string {
-
-            return `{"datosPersonales" : ${super.ToString()} , "datosCiviles" : {"dni" : ${this.dni}} , "pais" : ${this.pais} , "foto" : ${this.foto}}}`;
+        public ToJSON() {
+            
+            /*
+             * Las claves del JSON siempre entrecomilladas.
+             * Los valores tambien entrecomillados, incluso aunque se trate de una variable que contenga un string.
+             * Si es un valor numerico, nunca va entrecomillado.
+             */
+            return `{"datosPersonales":${super.ToJSON()} , "datosCiviles":{"dni":${this.dni} , "foto":"${this.foto}" , "pais":"${this.pais}"}}`;
         }
     }
 }
