@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Primer Parcial Laboratorio III</title>
+
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<script src="./jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	<script src='./app.js'></script>
+
+</head>
+<body style="background-color:#e6e6ff">
+    <div class="container" >
+<h2>ABM - CIUDADANOS</h2>
+<table class="table" style="width:100%;background-color">
+	<tr>
+		<td width="40%">
+			<table class="table table-hover" style="background-color:#99d6ff">
+				<tr>
+					<td>Nombre:</td>
+					<td><input type="text" id="txtNombre"></td>
+				</tr>
+				<tr>
+					<td>Apellido:</td>
+					<td><input type="text" id="txtApellido"></td>
+				</tr>
+				<tr>
+					<td>Edad:</td>
+					<td><input type="text" id="txtEdad"></td>
+				</tr>
+				<tr>
+					<td>Dni:</td>
+					<td><input type="text" id="txtDni"></td>
+				</tr>
+				<tr>
+					<td>Pais:</td>
+					<td><select id="cboPais" >
+            				<option>Argentina</option>
+            				<option>Uruguay</option>
+            				<option>Brasil</option>
+        				    </select>
+					</td>
+				</tr>
+				<tr>
+					<td>Foto:</td>
+					<td><input type="file" id="foto" onchange="Entidades.Manejadora.PreVisualizar()"/></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="button" class="btn btn-success" value="Agregar" onclick="Entidades.Manejadora.AgregarCiudadano()"/>
+          					<input type="button" class="btn btn-primary" value="Mostrar" onclick="Entidades.Manejadora.MostrarCiudadanos()"/>
+						<input type="button" class="btn btn-default" value="Filtrar por Pais" onclick="Entidades.Manejadora.FiltrarPorPais()">
+						<input type="button"class="btn btn-default" value="Confirmar cambios" id="btnConfirmar"/>
+						<input type="button"class="btn btn-default" value="Limpiar localStorage" onclick="Entidades.Manejadora.LimpiarLocalStorage()"/><br/>
+						<img src="" id="imagen"/>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<div id="divTabla" style="background-color:#ccccff"> Listado Aqui....</div>
+		</td>
+	</tr>
+</table>
+
+  </div>
+</body>
+</html>
