@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Primer Parcial Laboratorio III</title>
+
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<script src="./jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	<script src='./app.js'></script>
+
+</head>
+<body style="background-color:#e6e6ff">
+    <div class="container" >
+<h2>ABM - AUTOS</h2>
+<table class="table" style="width:100%;background-color">
+	<tr>
+		<td width="40%">
+			<table class="table table-hover" style="background-color:#99d6ff">
+				<tr>
+
+					<td>Marca:</td>
+					<td><select id="cboMarca" >
+						<option>Chevrolet</option>
+						<option>Ford</option>
+						<option>Fiat</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Precio:</td>
+					<td><input type="text" id="txtPrecio"></td>
+				</tr>
+				<tr>
+					<td>Color:</td>
+					<td><input type="text" id="txtColor"></td>
+				</tr>
+				<tr>
+					<td>Patente:</td>
+					<td><input type="text" id="txtPatente"></td>
+				</tr>
+				<tr>
+					<td>Foto:</td>
+					<td><input type="file" id="foto" onchange="Entidades.ManejadoraDeAutos.PreVisualizar()"/></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="button" class="btn btn-success" value="Agregar" onclick="Entidades.ManejadoraDeAutos.AgregarAuto()"/>
+          					<input type="button" class="btn btn-primary" value="Mostrar" onclick="Entidades.ManejadoraDeAutos.MostrarAutos()"/>
+						<input type="button" class="btn btn-default" value="Filtrar por Marca" onclick="Entidades.ManejadoraDeAutos.FiltrarPorMarca()">
+						<input type="button"class="btn btn-default" value="Confirmar cambios" id="btnConfirmar"/><br/>
+						<input type="button"class="btn btn-default" value="Eliminados" onclick="Entidades.ManejadoraDeAutos.Eliminados()"/><br/>
+						<img src="" id="imagen"/>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<div id="divTabla" style="background-color:#ccccff"> Listado Aqui....</div>
+		</td>
+	</tr>
+</table>
+
+  </div>
+</body>
+</html>
