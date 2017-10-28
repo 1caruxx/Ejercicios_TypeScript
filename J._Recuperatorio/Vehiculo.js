@@ -8,7 +8,7 @@ var Entidades;
             this.precio = precio;
         }
         Vehiculo.prototype.ToString = function () {
-            return "{\"marca\":\"" + this.marca + "\" , \"patente\":\"" + this.patente + "\" , \"precio\":" + this.precio + "}";
+            return JSON.stringify(this); /*`{"marca":"${this.marca}" , "patente":"${this.patente}" , "precio":${this.precio}}`*/
         };
         return Vehiculo;
     }());

@@ -50,36 +50,7 @@ namespace Entidades {
             })
             .done(function(respuesta) {
 
-                let stringAux = `<table>
-                                    <tbody>
-                                        <thead>
-                                            <th>Marca</th>
-                                            <th>Precio</th>
-                                            <th>Color</th>
-                                            <th>Patente</th>
-                                            <th>Foto</th>
-                                            <th>Accion</th>
-                                        </thead>`;
-                
-                for(let item of respuesta) {
-
-                    stringAux += `<tr>
-                                      <td>${(item.datos).marca}</td>
-                                      <td>${(item.datos).precio}</td>
-                                      <td>${(item.estetica).color}</td>
-                                      <td>${(item.datos).patente}</td>
-                                      <td><img src="./BACKEND/fotos/${(item.estetica).foto}" width="50px" height="50px"/></td>
-                                      <td>
-                                          <input type="button" value="Eliminar" onclick="Entidades.ManejadoraDeAutos.EliminarAuto('${(item.datos).patente}')"/>
-                                          <input type="button" value="Modificar" onclick="Entidades.ManejadoraDeAutos.ModificarAuto('${(item.datos).marca}' , '${(item.datos).precio}' , '${(item.estetica).color}' , '${(item.datos).patente}')"/>
-                                      </td>
-                                  </tr>`;
-                }
-
-                stringAux += `</tbody>
-                            </table>`;
-
-                div.innerHTML = stringAux;
+                ManejadoraDeAutos.Mostrar(respuesta);
             })
             .fail(function (respuesta) {
 
@@ -154,7 +125,6 @@ namespace Entidades {
 
         public static FiltrarPorMarca() {
 
-            var div= (<HTMLInputElement>document.getElementById("divTabla"));
             let marca = <string>$("#cboMarca").val();
             let parametros = `accion=filtrar&marca=${marca}`
 
@@ -167,37 +137,8 @@ namespace Entidades {
             })
             .done(function(respuesta) {
 
-                let stringAux = `<table>
-                <tbody>
-                    <thead>
-                        <th>Marca</th>
-                        <th>Precio</th>
-                        <th>Color</th>
-                        <th>Patente</th>
-                        <th>Foto</th>
-                        <th>Accion</th>
-                    </thead>`;
-
-                for(let item of respuesta) {
-
-                stringAux += `<tr>
-                                <td>${(item.datos).marca}</td>
-                                <td>${(item.datos).precio}</td>
-                                <td>${(item.estetica).color}</td>
-                                <td>${(item.datos).patente}</td>
-                                <td><img src="./BACKEND/fotos/${(item.estetica).foto}" width="50px" height="50px"/></td>
-                                <td>
-                                    <input type="button" value="Eliminar" onclick="Entidades.ManejadoraDeAutos.EliminarAuto('${(item.datos).patente}')"/>
-                                    <input type="button" value="Modificar" onclick="Entidades.ManejadoraDeAutos.ModificarAuto('${(item.datos).marca}' , '${(item.datos).precio}' , '${(item.estetica).color}' , '${(item.datos).patente}')"/>
-                                </td>
-                            </tr>`;
-                }
-
-                stringAux += `</tbody>
-                        </table>`;
-
-                div.innerHTML = stringAux;
-            })
+                ManejadoraDeAutos.Mostrar(respuesta);
+            });
         }
 
         public static PreVisualizar() {
@@ -258,7 +199,6 @@ namespace Entidades {
                 stringAux += `</tbody>
                             </table>`;
 
-        
                 div.innerHTML = stringAux;
             })
             .fail(function (respuesta) {
@@ -266,6 +206,42 @@ namespace Entidades {
                 alert("Algo salio mal.");
                 alert(respuesta);
             });
+        }
+
+        private static Mostrar(elementos:any) {
+
+            var div= (<HTMLInputElement>document.getElementById("divTabla"));
+
+            let stringAux = `<table>
+            <tbody>
+                <thead>
+                    <th>Marca</th>
+                    <th>Precio</th>
+                    <th>Color</th>
+                    <th>Patente</th>
+                    <th>Foto</th>
+                    <th>Accion</th>
+                </thead>`;
+
+            for(let item of elementos) {
+
+            stringAux += `<tr>
+                            <td>${(item.datos).marca}</td>
+                            <td>${(item.datos).precio}</td>
+                            <td>${(item.estetica).color}</td>
+                            <td>${(item.datos).patente}</td>
+                            <td><img src="./BACKEND/fotos/${(item.estetica).foto}" width="50px" height="50px"/></td>
+                            <td>
+                                <input type="button" value="Eliminar" onclick="Entidades.ManejadoraDeAutos.EliminarAuto('${(item.datos).patente}')"/>
+                                <input type="button" value="Modificar" onclick="Entidades.ManejadoraDeAutos.ModificarAuto('${(item.datos).marca}' , '${(item.datos).precio}' , '${(item.estetica).color}' , '${(item.datos).patente}')"/>
+                            </td>
+                        </tr>`;
+            }
+
+            stringAux += `</tbody>
+                    </table>`;
+
+            div.innerHTML = stringAux;
         }
     }
 }

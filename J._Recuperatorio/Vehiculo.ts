@@ -2,7 +2,7 @@ namespace Entidades {
 
     export abstract class Vehiculo {
 
-        public marca  :string;
+        public marca  : string;
         public patente : string;
         public precio : number;
 
@@ -15,7 +15,7 @@ namespace Entidades {
 
         public ToString() {
 
-            return `{"marca":"${this.marca}" , "patente":"${this.patente}" , "precio":${this.precio}}`;
+            return JSON.stringify(this); /*`{"marca":"${this.marca}" , "patente":"${this.patente}" , "precio":${this.precio}}`*/
         }
     }
 }

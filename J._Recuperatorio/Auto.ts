@@ -12,8 +12,7 @@ namespace Entidades {
             super(marca , patente , precio);
             this.color = color;
 
-            if(foto != "" && foto)
-            {
+            if(foto != "" && foto) {
 
                 this.foto = foto;
             }
