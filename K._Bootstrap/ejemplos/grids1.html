@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="img/utnLogo.png" rel="icon" type="image/png" />
+    <link rel="stylesheet" href="js/bootstrap/dist/css/bootstrap.min.css">
+    <script src="js/jquery/dist/jquery.min.js"></script>
+    <script src="js/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="css/estilos.css" rel="stylesheet" >
+    
+
+    <title>Bootstrap -Grillas-</title>
+</head>
+
+<body>
+    <h2 class="page-header">Sistemas de Grillas</h2>
+        
+    <div class="container-fluid">
+
+        <p class="text-muted">( redimensiona el navegador para ver cómo cambia la página )</p>
+        <h4>Visible en...</h4>
+        <p>Las marcas verdes indican que ese elemento <strong>es visible</strong> en tu dispositivo.</p>
+        
+        <div class="row responsive-utilities-test visible-on" style="padding-top:2em;">
+            <div class="col-xs-6 col-sm-3">
+                <span class="hidden-xs">Extra pequeño</span>
+                <span class="visible-xs">&#10004; Visible XS</span>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <span class="hidden-sm">Pequeño</span>
+                <span class="visible-sm">&#10004; Visible SM</span>
+            </div>
+            
+            <div class="clearfix visible-xs"></div>
+
+            <div class="col-xs-6 col-sm-3">
+                <span class="hidden-md">Mediano</span>
+                <span class="visible-md">&#10004; Visible MD</span>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <span class="hidden-lg">Grande</span>
+                <span class="visible-lg">&#10004; Visible LG</span>
+            </div>
+        </div>
+
+        <h4>Oculto en...</h4>
+        <p>En este caso, las marcas verdes indican que el elemento <strong>está oculto</strong> en tu dispositivo.</p>
+
+        <div class="row responsive-utilities-test hidden-on" style="padding-top:2em;">
+            <div class="col-xs-6 col-sm-3">
+                <span class="visible-xs">Extra pequeño</span>
+                <span class="hidden-xs">&#10004; Oculto en XS</span>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <span class="visible-sm">Pequeño</span>
+                <span class="hidden-sm">&#10004; Oculto en SM</span>
+            </div>
+            
+            <div class="clearfix visible-xs"></div>
+
+            <div class="col-xs-6 col-sm-3">
+                <span class="visible-md">Mediano</span>
+                <span class="hidden-md">&#10004; Oculto en MD</span>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <span class="visible-lg">Grande</span>
+                <span class="hidden-lg">&#10004; Oculto en LG</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+
+        <h4>Combinaciones de visibles</h4>
+        
+        <div class="row responsive-utilities-test visible-on" style="padding-top:2em;">
+            <div class="col-xs-6 col-sm-6">
+                <span class="hidden-xs hidden-sm">Extra pequeño y pequeño</span>
+                <span class="visible-xs visible-sm">&#10004; Visible en XS y SM</span>
+            </div>
+            <div class="col-xs-6 col-sm-6">
+                <span class="hidden-md hidden-lg">Mediano y grande</span>
+                <span class="visible-md visible-lg">&#10004; Visible en MD y LG</span>
+            </div>
+
+            <div class="clearfix visible-xs"></div>
+            
+            <div class="col-xs-6 col-sm-6">
+                <span class="hidden-xs hidden-md">Extra pequeño y mediano</span>
+                <span class="visible-xs visible-md">&#10004; Visible en XS y MD</span>
+            </div>
+            <div class="col-xs-6 col-sm-6">
+                <span class="hidden-sm hidden-lg">Pequeño y grande</span>
+                <span class="visible-sm visible-lg">&#10004; Visible en SM y LG</span>
+            </div>
+
+            <div class="clearfix visible-xs"></div>
+            
+            <div class="col-xs-6 col-sm-6">
+                <span class="hidden-xs hidden-lg">Extra pequeño y grande</span>
+                <span class="visible-xs visible-lg">&#10004; Visible en XS y LG</span>
+            </div>
+            <div class="col-xs-6 col-sm-6">
+                <span class="hidden-sm hidden-md">Pequeño y mediano</span>
+                <span class="visible-sm visible-md">&#10004; Visible en SM y MD</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">    
+    
+        <h4>Combinaciones de ocultos</h4>
+
+        <div class="row responsive-utilities-test hidden-on" style="padding-top:1em;">
+            <div class="col-xs-6 col-sm-6">
+                <span class="visible-xs visible-sm">Extra pequeño y pequeño</span>
+                <span class="hidden-xs hidden-sm">&#10004; Oculto en XS y SM</span>
+            </div>
+            <div class="col-xs-6 col-sm-6">
+                <span class="visible-md visible-lg">Mediano y grande</span>
+                <span class="hidden-md hidden-lg">&#10004; Oculto en MD y LG</span>
+            </div>
+
+            <div class="clearfix visible-xs"></div>
+            
+            <div class="col-xs-6 col-sm-6">
+                <span class="visible-xs visible-md">Extra pequeño y mediano</span>
+                <span class="hidden-xs hidden-md">&#10004; Oculto en XS y MD</span>
+            </div>
+            <div class="col-xs-6 col-sm-6">
+                <span class="visible-sm visible-lg">Pequeño y grande</span>
+                <span class="hidden-sm hidden-lg">&#10004; Oculto en SM y LG</span>
+            </div>
+            
+            <div class="clearfix visible-xs"></div>
+            
+            <div class="col-xs-6 col-sm-6">
+                <span class="visible-xs visible-lg">Extra pequeño y grande</span>
+                <span class="hidden-xs hidden-lg">&#10004; Oculto en XS y LG</span>
+            </div>
+            <div class="col-xs-6 col-sm-6">
+                <span class="visible-sm visible-md">Pequeño y mediano</span>
+                <span class="hidden-sm hidden-md">&#10004; Oculto en SM y MD</span>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

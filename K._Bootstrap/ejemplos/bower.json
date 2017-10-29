@@ -1,0 +1,13 @@
+{
+  "name": "01_grillas",
+  "authors": [
+    "maxi <maxineiner@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
