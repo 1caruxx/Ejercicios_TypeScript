@@ -20,20 +20,15 @@ $(document).ready(function() {
          */
         fields: {
 
-            
             //Las claves seran los atributos names de los elementos de mi DOM.
             txtNombre: {
-
                 validators: {
-
                     notEmpty: {message: "Introduzca el nombre de su usuario."}
                 }
             },
 
             password: {
-
                 validators: {
-
                     notEmpty: {message: "Introduzca su contraseña."}
                 }
             }
@@ -41,6 +36,6 @@ $(document).ready(function() {
     })
     .on("success.form.bv" , function() {
 
-        alert("Todo bien.");
+        alert("Todo esta en orden.");
     });
 });

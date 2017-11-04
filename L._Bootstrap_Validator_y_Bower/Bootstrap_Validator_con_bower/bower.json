@@ -7,6 +7,12 @@
   "main": "",
   "license": "MIT",
   "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "./bower_components",
+    "./node_modules",
+    "./src"
+  ],
   "dependencies": {
     "bootstrap":"latest",
     "bootstrapvalidator":"latest"
