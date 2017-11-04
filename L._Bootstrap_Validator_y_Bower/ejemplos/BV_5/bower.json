@@ -1,0 +1,23 @@
+{
+  "name": "Bootstrap Validator 4",
+  "authors": [
+    "maxi <maxineiner@gmail.com>"
+  ],
+  "description": "Uso de bower",
+  "main": "",
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "bootstrapvalidator": "bootstrapValidator#^0.5.3",
+    "eonasdan-bootstrap-datetimepicker": "bootstrap3-datetimepicker#^4.17.47",
+    "components-font-awesome": "^4.7.0"
+  }
+}

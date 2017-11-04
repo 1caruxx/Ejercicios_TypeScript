@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="../img/utnLogo.png" rel="icon" type="image/png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
+
+    <!-- JQUERY -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- BOOTSTRAP VALIDATOR -->
+    <script src="./bower_components/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
+
+    <!-- BOOTSTRAP -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <!-- BOOTSTRAP DATETIMEPICKER -->
+    <script src="./bower_components/moment/moment.js"></script>
+    <script src="./bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    
+    <!-- SPINNER -->
+    <link rel="stylesheet" href="./bower_components/components-font-awesome/css/font-awesome.min.css">
+    
+    <!-- FUNCIONES PROPIAS -->
+    <script type="text/javascript" src="app.js"></script>
+
+    <title>Bootstrap Validator #5</title>
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <form id="loginForm" method="post" class="well form-horizontal">
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Nombre de Usuario</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="usuario" id="usuario" placeholder="Usuario" class="form-control" type="text">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Contraseña</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                        <input name="password" id="password" class="form-control" type="password" placeholder="Contraseña">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Fecha de Nacimiento</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        <input type="text" class="form-control" name="datetimepicker" id="datetimepicker" data-date-format="DD-MM-YYYY" placeholder="Natalicio" />
+                    </div>
+                </div>
+              
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary" id="btnEnviar">Enviar <span class="glyphicon glyphicon-send"></span></button>
+
+                    <button type="reset" class="btn btn-warning" id="btnLimpiar">Limpiar <span class="glyphicon glyphicon-clean"></span></button>
+                </div>
+            </div>
+
+        </form>
+        <div class="alert" style="font-size:500%;text-align:center;"><i id="spinner" class="fa fa-spinner"></i></div>
+        <div class="alert alert-success hidden" role="alert" id="success_message">Éxito <i class="glyphicon glyphicon-thumbs-up"></i> Datos validados!!!.</div>
+                
+    </div>
+</body>
+
+</html>

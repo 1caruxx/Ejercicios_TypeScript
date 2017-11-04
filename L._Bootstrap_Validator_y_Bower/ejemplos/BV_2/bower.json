@@ -1,0 +1,21 @@
+{
+  "name": "Bootstrap Validator 2",
+  "authors": [
+    "maxi <maxineiner@gmail.com>"
+  ],
+  "description": "Uso de bower",
+  "main": "",
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "latest",
+    "bootstrapValidator": "latest"
+  }
+}

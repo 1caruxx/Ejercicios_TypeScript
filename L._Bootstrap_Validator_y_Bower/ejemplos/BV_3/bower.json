@@ -1,0 +1,21 @@
+{
+  "name": "Bootstrap Validator 3",
+  "authors": [
+    "maxi <maxineiner@gmail.com>"
+  ],
+  "description": "Modulos bower en carpeta propia",
+  "main": "",
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "latest",
+    "bootstrapValidator": "latest"
+  }
+}

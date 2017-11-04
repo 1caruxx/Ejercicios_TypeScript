@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- JQUERY -->
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+            
+    <!-- BOOTSTRAP -->
+    <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+            
+    <!-- BOOTSTRAP VALIDATOR -->
+    <script src="./bower_components/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+    
+    <script type="text/javascript" src="./script.js"></script>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- sin la clase  well form-horizontal el formulario se deforma-->
+        
+            <form class="well form-horizontal" id="form">
+                <!-- este div sera el contenedor de las distintas filas del form,
+                     estas filas contienen labels, iconos e inputs  -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Nombre</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <!-- el div con clase input-group-addon hace que los elementos
+                                 contenidos esten pegados-->
+                            <span class="input-group-addon">
+                                <!-- La etiqueta i sirve para insertar un icono -->
+                                <i class="glyphicon glyphicon-user"></i>
+                            </span>
+                            <!-- En el JSON de bootstrap validator, los input son son recuperados
+                                 a traves del atributo name, no el ID -->
+                            <input type="text" class="form-control" name="txtNombre" placeholder="Ingrese su usuario"/>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Contraseña</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                            <input name="password" class="form-control" type="password" placeholder="Contraseña">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary">Enviar <span class="glyphicon glyphicon-send"></span></button>
+                        <button type="reset" class="btn btn-warning">Limpiar <span class="glyphicon glyphicon-clean"></span></button>
+                    </div>
+                </div>
+
+            </form>
+     
+    </div>
+    
+</body>
+</html>

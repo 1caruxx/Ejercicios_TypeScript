@@ -1,0 +1,14 @@
+{
+  "name": "Bootstrap Validator",
+  "authors": [
+    "1caruxx <fernandohugolareu@hotmail.com>"
+  ],
+  "description": "Valida campos de mi formulario",
+  "main": "",
+  "license": "MIT",
+  "homepage": "index.html",
+  "dependencies": {
+    "bootstrap":"latest",
+    "bootstrapvalidator":"latest"
+  }
+}
