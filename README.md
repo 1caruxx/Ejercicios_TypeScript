@@ -28,6 +28,7 @@ Los lenguajes tratados fueron:
 * [jQuery](https://jquery.com/)
 * [Bootstrap](http://getbootstrap.com/)
 * [Bootstrap Validator](http://1000hz.github.io/bootstrap-validator/)
+* [Bower](https://bower.io/)
 
 ## Autor
 
