@@ -1,0 +1,18 @@
+{
+  "name": "prueba",
+  "homepage": "https://github.com/1caruxx/Ejercicios_TypeScript_y_HTML",
+  "authors": [
+    "1caruxx <fernandohugolareu@hotmail.com>"
+  ],
+  "description": "solo una prueba",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "index.html"
+  ],
+  "dependencies": {
+    "bootstrap": "latest",
+    "bootstrapvalidator": "latest"
+  }
+}
