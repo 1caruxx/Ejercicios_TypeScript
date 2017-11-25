@@ -1,6 +1,4 @@
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./Z._img/utnfra.png" width="100px" height="100px"/>
-
-# Laboratorio III
+# Laboratorio III 
 
 Este repositorio contiene todos los ejercicios hechos a lo largo de la cursada de laboratorio III.
 
@@ -65,4 +63,4 @@ Los lenguajes tratados fueron:
 
 # License
 
-This project is licensed under the GNU General Public License v3.0 - see the LICENSE.md file for details.
+This project is licensed under the GNU General Public License v3.0 - see the LICENSE file for details.
