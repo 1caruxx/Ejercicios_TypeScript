@@ -1,3 +1,5 @@
+&nbsp;&nbsp;&nbsp;&nbsp;<img src="./Z._img/utnfra.png" style="width:100px;height:100px"/>
+
 # Laboratorio III
 
 Este repositorio contiene todos los ejercicios hechos a lo largo de la cursada de laboratorio III.
@@ -20,8 +22,9 @@ Los lenguajes tratados fueron:
 * Bootstrap
 * Bootstrap Validator
 * Bower
+* JSON Web Token
 
-## IDE, Frameworks y programas utilizados
+## Tecnologias utilizadas
 
 <table>
     <tbody>
@@ -49,6 +52,10 @@ Los lenguajes tratados fueron:
             <td><img src="./Z._img/bower.png" width="20px" height="20px"/></td>
             <td><a href="https://bower.io/">Bower</a></td>
         <tr>
+        <tr>
+            <td><img src="./Z._img/jwt.png" width="20px" height="20px"/></td>
+            <td><a href="https://jwt.io/">JSON Web Token</a></td>
+        <tr>
     </tbody>
 </table>
 
@@ -58,4 +65,4 @@ Los lenguajes tratados fueron:
 
 # License
 
-This project is licensed under the GNU General Public License v3.0 - see the LICENSE.md file for details
+This project is licensed under the GNU General Public License v3.0 - see the LICENSE.md file for details.
