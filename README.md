@@ -1,4 +1,4 @@
-&nbsp;&nbsp;&nbsp;&nbsp;<img src="./Z._img/utnfra.png" style="width:100px;height:100px"/>
+<img src="./Z._img/utnfra.png" position="absolute" right="20px"/>
 
 # Laboratorio III
 
