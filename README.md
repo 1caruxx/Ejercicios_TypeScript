@@ -1,3 +1,5 @@
+<img src="./Z._img/utnfra.png" position="absolute" right="20px"/>
+
 # Laboratorio III
 
 Este repositorio contiene todos los ejercicios hechos a lo largo de la cursada de laboratorio III.
