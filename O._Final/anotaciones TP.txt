@@ -1,0 +1,4 @@
+documentacion en u archivo aparate (.doc por ejemplo)
+alert convencionales no, usar bootstrap o sweet alert
+si el usuario no esta logueado, lo aviso y redirecciono al login
+os empleados no se eliminan, se dan de baja logicamente (tienen un atributo estado, maxi no lo especifico)

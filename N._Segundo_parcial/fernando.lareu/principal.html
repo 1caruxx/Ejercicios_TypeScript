@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Principal</title>
+
+    <script src="./vendor/jquery/dist/jquery.min.js"></script>
+    <script src="./vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="./vendor/bootstrap/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="./css.css">
+
+    <script src="./login.js"></script>
+</head>
+
+<body style="background-color:pink;">
+
+        <h3>PRINCIPAL</h3>
+
+    <div class="top-content">
+            
+
+        <div class="row" >
+
+            <div class="col-md-5">
+            
+            <form class="well form-horizontal" id="form">
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Nombre</label>
+                    <div class="inputGroupContainer">
+                        <div class="input-group">
+
+                            <span class="input-group-addon">
+
+                                <i class="glyphicon glyphicon-barcode"></i>
+                            </span>
+
+                            <input type="text" class="form-control" name="nombre" id="txtNombre" placeholder="Nombre" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Precio</label>
+                    <div class="inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-euro"></i>
+                            </span>
+                            <input type="text" class="form-control" name="precio" id="txtPrecio" placeholder="Precio">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                        <label class="col-md-4 control-label"></label>
+                        
+                            <button type="submit" class="btn btn-info">Enviar</button>
+                            <button type="reset" class="btn btn-warning">Limpiar</button>
+                        
+                </div>
+
+            </form>
+
+            </div>
+
+            <div class="row" id="divRow">
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

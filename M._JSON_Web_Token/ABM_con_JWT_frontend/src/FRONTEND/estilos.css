@@ -1,0 +1,13 @@
+body {
+    background-image: url('./list.jpg');
+    background-size: cover;
+}
+
+div {
+    border-radius: 10px;
+}
+
+.center {
+    left: 50%;
+    top: 50%;
+}

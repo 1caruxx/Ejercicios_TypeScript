@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Listado de Usuarios</title>
+
+    <script src="./vendor/jquery/dist/jquery.min.js"></script>
+    <script src="./vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
+    <link rel="stylesheet" href="./vendor/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./src/FRONTEND/estilos.css" />
+    <script src="./script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row">
+
+            <form class="well form-horizontal" id="form">
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Correo</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+
+                            <span class="input-group-addon">
+
+                                <i class="glyphicon glyphicon-user"></i>
+                            </span>
+
+                            <input type="text" class="form-control" name="nombre" id="txtNombre" placeholder="example@hotmail.com" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Contraseña</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-asterisk"></i>
+                            </span>
+                            <input type="password" class="form-control" name="password" id="pswPass" placeholder="Contraseña">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Perfil</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+
+                            <select id="cboPerfil" class="form-control">
+                                <option>root</option>
+                                <option>convencional</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Foto</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <input type="file" class="form-control" name="foto" name="file"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div>
+                        <button type="button" class="btn btn-danger" onclick="Deslogear()">Deslogear</button>
+                        <button type="submit" class="btn btn-success">Agregar</button>
+                        <button type="button" class="btn btn-primary" onclick="Mostrar()">Mostrar</button>
+                        <button type="button" class="btn btn-primary" onclick="FiltrarPorPerfil()">Filtrar por perfil</button>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+        <div style="background-color:white;">
+            <h4>Usuarios</h4>
+            <div class="table-responsive" id="divTabla">
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

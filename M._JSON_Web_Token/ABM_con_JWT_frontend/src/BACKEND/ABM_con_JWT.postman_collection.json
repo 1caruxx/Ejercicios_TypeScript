@@ -1,0 +1,369 @@
+{
+	"info": {
+		"name": "ABM_con_JWT",
+		"_postman_id": "b70f4750-5f54-5080-773c-c3e958261f65",
+		"description": "Direcciones que prueban los distintos verbos de la API.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Base de datos",
+			"description": "Todos los verbos asociados a la base de datos jwt.",
+			"item": [
+				{
+					"name": "Alta",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjb3JyZW8iOiJmZXJuYW5kb0Bob3RtYWlsLmNvbSIsImNsYXZlIjoiMjIyIiwicGVyZmlsIjoicm9vdCJ9.27fiMSqWH8wSohcEdqxVjnVGwR58tX6eymvy2mO0b5Y"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "correo",
+									"value": "juan@hotmail.com",
+									"type": "text"
+								},
+								{
+									"key": "clave",
+									"value": "444",
+									"type": "text"
+								},
+								{
+									"key": "perfil",
+									"value": "convencional",
+									"type": "text"
+								},
+								{
+									"key": "foto",
+									"value": "",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/ejercicios/ABM_con_JWT/admin.php/BD/alta",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ejercicios",
+								"ABM_con_JWT",
+								"admin.php",
+								"BD",
+								"alta"
+							]
+						},
+						"description": "Da de alta un nuevo usuario."
+					},
+					"response": []
+				},
+				{
+					"name": "Baja",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjb3JyZW8iOiJmZXJuYW5kb0Bob3RtYWlsLmNvbSIsImNsYXZlIjoiMjIyIiwicGVyZmlsIjoicm9vdCJ9.27fiMSqWH8wSohcEdqxVjnVGwR58tX6eymvy2mO0b5Y"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "correo",
+									"value": "juan@hotmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/ejercicios/ABM_con_JWT/admin.php/BD/baja",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ejercicios",
+								"ABM_con_JWT",
+								"admin.php",
+								"BD",
+								"baja"
+							]
+						},
+						"description": "Da de baja un usuario existente."
+					},
+					"response": []
+				},
+				{
+					"name": "Modificacion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjb3JyZW8iOiJmZXJuYW5kb0Bob3RtYWlsLmNvbSIsImNsYXZlIjoiMjIyIiwicGVyZmlsIjoicm9vdCJ9.27fiMSqWH8wSohcEdqxVjnVGwR58tX6eymvy2mO0b5Y"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "correo",
+									"value": "juan@hotmail.com",
+									"type": "text"
+								},
+								{
+									"key": "clave",
+									"value": "mod",
+									"type": "text"
+								},
+								{
+									"key": "perfil",
+									"value": "convencional",
+									"type": "text"
+								},
+								{
+									"key": "foto",
+									"value": "",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/ejercicios/ABM_con_JWT/admin.php/BD/modificacion",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ejercicios",
+								"ABM_con_JWT",
+								"admin.php",
+								"BD",
+								"modificacion"
+							]
+						},
+						"description": "Modifica un usuario existente."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Archivo",
+			"description": "Todos los verbos asociados al archivo.",
+			"item": [
+				{
+					"name": "Alta",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjb3JyZW8iOiJmZXJuYW5kb0Bob3RtYWlsLmNvbSIsImNsYXZlIjoiMjIyIiwicGVyZmlsIjoicm9vdCJ9.27fiMSqWH8wSohcEdqxVjnVGwR58tX6eymvy2mO0b5Y"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "correo",
+									"value": "juan@hotmail.com",
+									"type": "text"
+								},
+								{
+									"key": "clave",
+									"value": "444",
+									"type": "text"
+								},
+								{
+									"key": "perfil",
+									"value": "convencional",
+									"type": "text"
+								},
+								{
+									"key": "foto",
+									"value": "",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/ejercicios/ABM_con_JWT/admin.php/archivo/alta",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ejercicios",
+								"ABM_con_JWT",
+								"admin.php",
+								"archivo",
+								"alta"
+							]
+						},
+						"description": "Da de alta un nuevo usuario."
+					},
+					"response": []
+				},
+				{
+					"name": "Baja",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjb3JyZW8iOiJmZXJuYW5kb0Bob3RtYWlsLmNvbSIsImNsYXZlIjoiMjIyIiwicGVyZmlsIjoicm9vdCJ9.27fiMSqWH8wSohcEdqxVjnVGwR58tX6eymvy2mO0b5Y"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "correo",
+									"value": "juan@hotmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/ejercicios/ABM_con_JWT/admin.php/archivo/baja",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ejercicios",
+								"ABM_con_JWT",
+								"admin.php",
+								"archivo",
+								"baja"
+							]
+						},
+						"description": "Da de baja un usuario existente."
+					},
+					"response": []
+				},
+				{
+					"name": "Modificacion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjb3JyZW8iOiJmZXJuYW5kb0Bob3RtYWlsLmNvbSIsImNsYXZlIjoiMjIyIiwicGVyZmlsIjoicm9vdCJ9.27fiMSqWH8wSohcEdqxVjnVGwR58tX6eymvy2mO0b5Y"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "correo",
+									"value": "juan@hotmail.com",
+									"type": "text"
+								},
+								{
+									"key": "clave",
+									"value": "mod",
+									"type": "text"
+								},
+								{
+									"key": "perfil",
+									"value": "convencional",
+									"type": "text"
+								},
+								{
+									"key": "foto",
+									"value": "",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/ejercicios/ABM_con_JWT/admin.php/archivo/modificacion",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ejercicios",
+								"ABM_con_JWT",
+								"admin.php",
+								"archivo",
+								"modificacion"
+							]
+						},
+						"description": "Modifica un usuario existente."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "correo",
+							"value": "fernando@hotmail.com",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "222",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/ejercicios/ABM_con_JWT/admin.php/login",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ejercicios",
+						"ABM_con_JWT",
+						"admin.php",
+						"login"
+					]
+				},
+				"description": "Permite a un usuario logearse retornan un JSON Web Token."
+			},
+			"response": []
+		}
+	]
+}

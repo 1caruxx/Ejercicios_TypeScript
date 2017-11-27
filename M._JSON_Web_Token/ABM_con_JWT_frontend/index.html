@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login con JWT</title>
+
+    <script src="./vendor/jquery/dist/jquery.min.js"></script>
+    <script src="./vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="./vendor/bootstrap/dist/css/bootstrap.min.css">
+
+
+    <link rel="stylesheet" href="./src/FRONTEND/form-elements.css">
+    <link rel="stylesheet" href="./src/FRONTEND/css.css">
+
+    <script src="login.js"></script>
+</head>
+
+<body>
+
+    <div class="top-content" style="background-color:lavender">
+
+        <div class="inner-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2 text-info">
+                        <h1 class="">
+                            <strong>ABM</strong> Middlewarewe - PHP - JWT - Typescript - Jquery - Ajax</h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3 form-box">
+                        <div class="form-top text-info">
+                            <div class="form-top-left">
+                                <h3 class="h3 text-info text-uppercase">Ingresar</h3>
+                                <p class="lead">Ingrese usuario y clave:</p>
+                            </div>
+                            <div class="form-top-right">
+                                <i class="fa fa-key"></i>
+                            </div>
+                        </div>
+                        <div class="form-bottom">
+                            <form role="form" action="" method="post" class="login-form" id="form">
+                                <div class="form-group">
+                                    <label class="sr-only" for="form-username">E-mail</label>
+                                    <input type="text" name="usuario" id="usuario" value="fernando@hotmail.com" placeholder="example@hotmail.com" class="form-username form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="form-password">Password</label>
+                                    <input type="password" name="clave" id="clave" placeholder="password" class="form-password form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary" id="btnEnviar">Ingresar
+                                    <span class="glyphicon glyphicon-send"></span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
