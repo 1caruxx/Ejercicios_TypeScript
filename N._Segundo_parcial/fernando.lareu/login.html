@@ -2,78 +2,99 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
 
-    <script src="./vendor/jquery/dist/jquery.min.js"></script>
-    <script src="./vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="./vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
+    <script type="text/javascript" src="./vendor/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="./vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
 
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
     <link rel="stylesheet" href="./vendor/bootstrap/dist/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="./css.css">
 
-    <script src="./login.js"></script>
+    <script type="text/javascript" src="./login.js"></script>
 </head>
 
-<body style="background-color:pink;">
-
-        <h3>LOGIN</h3>
+<body style="background-color:pink">
 
     <div class="top-content">
-            
 
-        <div class="row">
-            
+        <div class="inner-bg">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2 text-info">
+                        <h1 class="">
+                            <strong>LOGIN</strong>
+                        </h1>
+                    </div>
+                </div>
+                                                <!-- Formulario -->
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3 form-box">
 
-            <form class="well form-horizontal" id="form">
+                        <div class="form-bottom">
+                            <form role="form" action="" method="post" class="login-form" id="form">
 
-                <div class="form-group">
-                    <label class="col-md-4 control-label">E-Mail</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
+                                                <!-- Input -->
 
-                            <span class="input-group-addon">
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">E-Mail</label>
+                                    <div class=" inputGroupContainer">
+                                        <div class="input-group">
 
-                                <i class="glyphicon glyphicon-envelope"></i>
-                            </span>
+                                            <span class="input-group-addon">
+                                                <i class="glyphicon glyphicon-envelope"></i>
+                                            </span>
 
-                            <input type="text" class="form-control" name="correo" id="txtCorreo" placeholder="Correo" />
+                                            <input type="text" class="form-control" name="correo" id="txtCorreo" placeholder="Correo" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                                <!-- Input -->
+                                                <!-- Input -->
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Clave</label>
+                                    <div class="inputGroupContainer">
+                                        <div class="input-group">
+
+                                            <span class="input-group-addon">
+                                                <i class="glyphicon glyphicon-lock"></i>
+                                            </span>
+
+                                            <input type="password" class="form-control" name="password" id="pswPass" placeholder="Contraseña">
+                                        </div>
+                                    </div>
+                                </div>
+                                                <!-- Input -->
+                                                <!-- Botones -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="submit" class="btn btn-info btn-block" id="btnEnviar">Enviar</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="reset" class="btn btn-warning btn-block" id="btnEnviar">Limpiar</button>
+                                    </div>
+                                </div>
+                                                <!-- Botones -->
+                            </form>
+                        </div>
+                        <br/>
+                        <button type="button" class="btn btn-success btn-block" onclick="Registro()">Quiero registrarme!</button>
+                        <br/>
+                        <div class="row" id="divAlert">
+                            
                         </div>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Clave</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="glyphicon glyphicon-lock"></i>
-                            </span>
-                            <input type="password" class="form-control" name="password" id="pswPass" placeholder="Contraseña">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label"></label>
-                    <div class="col-md-4">
-                        <button type="submit" class="btn btn-info">Enviar</button>
-                        <button type="reset" class="btn btn-warning">Limpiar</button>
-                    </div>
-                </div>
-
-            </form>
-
-            <button type="button" class="btn btn-success btn-block" onclick="Registro()">Quiero registrarme</button>
-
+                                                <!-- Formulario -->
+            </div>
         </div>
-
     </div>
 </body>
-
 </html>

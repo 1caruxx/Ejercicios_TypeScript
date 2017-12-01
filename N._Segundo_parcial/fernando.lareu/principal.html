@@ -2,83 +2,100 @@
 <html lang="en">
 
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Principal</title>
 
-    <script src="./vendor/jquery/dist/jquery.min.js"></script>
-    <script src="./vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="./vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
+    <script type="text/javascript" src="./vendor/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="./vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
 
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
     <link rel="stylesheet" href="./vendor/bootstrap/dist/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="./css.css">
 
-    <script src="./login.js"></script>
+    <script type="text/javascript" src="./principal.js"></script>
 </head>
 
-<body style="background-color:pink;">
-
-        <h3>PRINCIPAL</h3>
+<body style="background-color:rgb(153, 167, 184)">
 
     <div class="top-content">
-            
 
-        <div class="row" >
+        <div class="inner-bg">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2 text-info">
+                        <h1 class="">
+                            <strong>PRINCIPAL</strong>
+                        </h1>
+                    </div>
+                </div>
+                <!-- Formulario -->
+                <div class="row">
+                    <div class="col-sm-3 col-xs-3 col-md-3 form-box">
+                        <div class="form-bottom">
+                            <form role="form" action="" method="post" class="login-form" id="form">
 
-            <div class="col-md-5">
-            
-            <form class="well form-horizontal" id="form">
+                                <!-- Input -->
 
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Nombre</label>
-                    <div class="inputGroupContainer">
-                        <div class="input-group">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Nombre</label>
+                                    <div class=" inputGroupContainer">
+                                        <div class="input-group">
 
-                            <span class="input-group-addon">
+                                            <span class="input-group-addon">
+                                                <i class="glyphicon glyphicon-barcode"></i>
+                                            </span>
 
-                                <i class="glyphicon glyphicon-barcode"></i>
-                            </span>
+                                            <input type="text" class="form-control" name="nombre" id="txtNombre" placeholder="Nombre" />
+                                        </div>
+                                    </div>
+                                </div>
 
-                            <input type="text" class="form-control" name="nombre" id="txtNombre" placeholder="Nombre" />
+                                <!-- Input -->
+                                <!-- Input -->
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Precio</label>
+                                    <div class="inputGroupContainer">
+                                        <div class="input-group">
+
+                                            <span class="input-group-addon">
+                                                <i class="glyphicon glyphicon-usd"></i>
+                                            </span>
+
+                                            <input type="text" class="form-control" name="precio" id="txtPrecio" placeholder="Precio">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Input -->
+                                <!-- Botones -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="submit" class="btn btn-info btn-block" id="btnEnviar" value="">Enviar</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="reset" class="btn btn-warning btn-block" id="btnEnviar">Limpiar</button>
+                                    </div>
+                                </div>
+                                <!-- Botones -->
+                            </form>
                         </div>
+                    </div>
+                    <div class="col-sm-8 col-xs-8 col-md-8" id="divTabla">
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Precio</label>
-                    <div class="inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="glyphicon glyphicon-euro"></i>
-                            </span>
-                            <input type="text" class="form-control" name="precio" id="txtPrecio" placeholder="Precio">
-                        </div>
-                    </div>
+                <div class="row" id="divTablaProductos">
+
                 </div>
-
-                <div class="form-group">
-                        <label class="col-md-4 control-label"></label>
-                        
-                            <button type="submit" class="btn btn-info">Enviar</button>
-                            <button type="reset" class="btn btn-warning">Limpiar</button>
-                        
-                </div>
-
-            </form>
-
             </div>
-
-            <div class="row" id="divRow">
-
-            </div>
-
+            <!-- Formulario -->
         </div>
-
     </div>
+
 </body>
 
 </html>

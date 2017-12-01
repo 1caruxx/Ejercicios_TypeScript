@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit910769c8332a66831f5f588475694d7a
+class ComposerStaticInit4d8e7396135ad76ec8b9a591fd59e093
 {
     public static $files = array (
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
@@ -26,6 +26,7 @@ class ComposerStaticInit910769c8332a66831f5f588475694d7a
         ),
         'F' => 
         array (
+            'Firebase\\JWT\\' => 13,
             'FastRoute\\' => 10,
         ),
     );
@@ -47,6 +48,10 @@ class ComposerStaticInit910769c8332a66831f5f588475694d7a
         array (
             0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
         ),
+        'Firebase\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
+        ),
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
@@ -66,9 +71,9 @@ class ComposerStaticInit910769c8332a66831f5f588475694d7a
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit910769c8332a66831f5f588475694d7a::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit910769c8332a66831f5f588475694d7a::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit910769c8332a66831f5f588475694d7a::$prefixesPsr0;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit4d8e7396135ad76ec8b9a591fd59e093::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit4d8e7396135ad76ec8b9a591fd59e093::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit4d8e7396135ad76ec8b9a591fd59e093::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }

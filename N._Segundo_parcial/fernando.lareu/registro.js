@@ -1,91 +1,91 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
     $("#form").bootstrapValidator({
 
         fields: {
             apellido: {
                 validators: {
-                    notEmpty: { message: "Introduzca su su apellido." },
-                    stringLength: { max: 15, message: "Solo se pueden introducir hasta 15 caracteres." }
+                    notEmpty: {message: "Se debe completar este campo."},
+                    stringLength: {max: 15 , message:"Se admiten hasta un maximo de 15 caracteres."}
                 }
             },
             nombre: {
                 validators: {
-                    notEmpty: { message: "Introduzca su nombre." },
-                    stringLength: { max: 10, message: "Solo se pueden introducir hasta 10 caracteres." }
+                    notEmpty: {message: "Se debe completar este campo."},
+                    stringLength: {max: 10 , message:"Se admiten hasta un maximo de 10 caracteres."}
                 }
             },
             email: {
                 validators: {
-                    notEmpty: { message: "Introduzca su correo." },
-                    emailAddress: { message: "Correo introducido no valido." }
+                    notEmpty: {message: "Se debe completar este campo."},
+                    emailAddress: {message: "eMail ingresado no valido."}
                 }
             },
             legajo: {
                 validators: {
-                    notEmpty: { message: "Introduzca su legajo." },
-                    integer: { message: "Debe ser un numero entero." },
-                    stringLength: { min: 3, max: 6, message: "Debe estar entre los 3 y 6 digitos." }
-
+                    notEmpty: {message: "Se debe completar este campo."},
+                    integer: {message: "Se debe introducir un numero entero."},
+                    stringLength: {min: 3 , max: 6 , message:"Entre 3 y 6 caracteres."}
                 }
             },
             foto: {
                 validators: {
-                    notEmpty: { message: "Introduzca su legajo." },
-                    file: { extension: "jpg", extension: "jpg", message: "Solo se admiten formatos JPG y PNG." },
-                    file: { maxSize: 950, message: "No puede pesar mas de 950 bytes" }
+                    notEmpty: {message: "Se debe completar este campo."},
+
+                    file: {extension: "jpg,png" , maxSize: 850*1024 , message: "Solo se admiten archivos con formato .jpg y .png. y de hasta 850 KB"}
                 }
             },
-            password: {
+            clave: {
                 validators: {
-                    notEmpty: { message: "Introduzca su contraseña." },
-                    stringLength: { min: 4, max: 8, message: "La contraseña debe tener entre 4 y 8 caracteres." },
+                    notEmpty: {message: "Se debe completar este campo."},
+                    stringLength: {min: 4 , max: 8 , message:"Entre 4 y 8 caracteres."}
+
                 }
-            },
-            confirm: {
+            }/*,
+            confirmar: {
                 validators: {
-                    notEmpty: { message: "Introduzca su contraseña." },
-                    stringLength: { min: 4, max: 8, message: "La contraseña debe tener entre 4 y 8 caracteres." },
-                    different: { field: "password", message: "Los campos no coinciden." }
+                    notEmpty: {message: "Se debe completar este campo."},
+                    stringLength: {min: 4 , max: 8 , message:"Entre 4 y 8 caracteres."},
+                    different: {field: "clave" , message: "Debe coincidir con el campo clave."}
                 }
-            }
+            }*/
         }
     })
-        .on("success.form.bv", function (form) {
+    .on("success.form.bv" , function(form) {
 
-            form.preventDefault();
+        form.preventDefault();
 
-            let archivo = $("#file").val();
-            let formData = new FormData();
-            formData.append("foto" , archivo.files[0]);
-            formData.append("apellido" , $('#txtApellido').val());
-            formData.append("nombre" , $('#txtNombre').val());
-            formData.append("email" , $('#txtEmail').val());
-            formData.append("legajo" , $('#txtLegajo').val());
-            formData.append("perfil" , $('#cboPerfil').val());
-            formData.append("clave" , $('#pswPass').val());
-           
-            $.ajax({
+        let archivo = document.getElementById("filFoto");
+        let formData  = new FormData();
+        formData.append("foto" , archivo.files[0]);
+        formData.append("nombre" , $("#txtNombre").val());
+        formData.append("apellido" , $("#txtApellido").val());
+        formData.append("email" , $("#txtCorreo").val());
+        formData.append("legajo" , $("#txtLegajo").val());
+        formData.append("perfil" , $("#cboPerfil").val());
+        formData.append("clave" , $("#pswPass").val());
 
-                url: "./admin.php/productos/",
-                type: "POST",
-                data: formData,
-                dataType: "text",
-                async: true
-            })
-                .done(function (respuesta) {
+        /*let formData  = new FormData();
+        formData.append("form" , document.getElementById("form"));*/
 
-                    if (respuesta.valido != "false") {
+        $.ajax({
+            url: "./admin.php/",
+            type: "POST",
+            data: formData,
+            dataType: "text",
+            cache: false,
+            contentType: false,
+            processData: false,
+            async: true
+        })
+        .done(function(response) {
 
-                        location.href = "./principal.html";
-                    }
-                    else {
-                        alert("Usuario inexistente.");
-                    }
-                })
-                .fail(function (respuesta) {
+            alert(response);
+            location.href = "./login.html";
+        })
+        .fail(function(response) {
 
-                    alert("Algo salio mal: " + respuesta);
-                });
+            alert("Algo salio mal: " + response);
         });
+    })
 });

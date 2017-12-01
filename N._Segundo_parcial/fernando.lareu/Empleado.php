@@ -1,5 +1,8 @@
 <?php
 
+    require_once "./vendor/autoload.php";
+    use \Firebase\JWT\JWT;
+
     class Empleado {
 
         public $nombre;
@@ -10,7 +13,7 @@
         public $clave;
         public $perfil;
 
-        public function __construct($nombre, $apellido, $email, $foto, $legajo, $clave, $perfil) {
+        public function __construct($nombre , $apellido , $email , $foto , $legajo , $clave , $perfil) {
 
             $this->nombre = $nombre;
             $this->apellido = $apellido;
@@ -21,147 +24,94 @@
             $this->perfil = $perfil;
         }
 
-        public static function ObtenerListado($response=null) {
-            
+        public static function Agregar($request , $response , $archivo) {
+
             $datos = "mysql:host=localhost;dbname=donfubd";
             $user = "root";
             $pass = "";
-            
-            try {
-            
-                $conexcion = new PDO($datos , $user , $pass);
-                $resultado = $conexcion->prepare("SELECT * FROM `empleados`");
-                $resultado->execute();
-                $empleados = array();
+            $datosEmpleado = $request->getParsedBody();
+            $foto = date("Gis").".".pathinfo($archivo["foto"]["name"] , PATHINFO_EXTENSION);
+            $rutaFoto = "./img/".$foto;
 
-            
-                while($fila = $resultado->fetch(PDO::FETCH_ASSOC)) {
-            
-                    array_push($empleados , new Empleado($fila["nombre"], $fila["apellido"],$fila["email"],$fila["foto"],$fila["legajo"],$fila["clave"],$fila["perfil"]));
-                }
+            try {
+
+                $conexcion = new PDO($datos , $user , $pass);
+                $resultados = $conexcion->prepare("INSERT INTO `empleados`(`nombre`, `apellido`, `email`, `foto`, `legajo`, `clave`, `perfil`) VALUES ('".$datosEmpleado["nombre"]."','".$datosEmpleado["apellido"]."','".$datosEmpleado["email"]."','".$foto."',".$datosEmpleado["legajo"].",'".$datosEmpleado["clave"]."','".$datosEmpleado["perfil"]."')");
+                $resultados->execute();
+
+                move_uploaded_file($archivo["foto"]["tmp_name"] , $rutaFoto);
+
+                $response->getBody()->write("Se ha cargado correctamente el empleado.");
             }
             catch(Exception $exception) {
-            
-                $response->getBody()->write("Se ha atrapado una excepcion: ".$excepcion->getMessage());
-            }
-            
-             return $empleados;
-        }
 
-        public static function Agregar($request, $response, $_AR) {
-
-            $datos = "mysql:host=localhost;dbname=DonFuBD";
-            $user = "root";
-            $pass = "";
-            $empleado = $request ->getParsedBody();
-            $nombreFoto = date("Gis").".".pathinfo($_AR["foto"]["name"], PATHINFO_EXTENSION);
-            $rutaFoto = "./img/".$nombreFoto;
-
-            try {
-
-                $conexcion = new PDO($datos, $user, $pass);
-                $resultados = $conexcion ->prepare("INSERT INTO `empleados`(`nombre`, `apellido`, `email`, `foto`, `legajo`, `clave`, `perfil`) VALUES ('".$empleado["nombre"]."','".$empleado["apellido"]."','".$empleado["email"]."','".$nombreFoto."',".$empleado["legajo"].",'".$empleado["clave"]."','".$empleado["perfil"]."')");
-                $resultados ->execute();
-                move_uploaded_file($_AR["foto"]["tmp_name"], $rutaFoto);
-
-                $response ->getBody() ->write("Se ha cargado correctamente el nuevo empleado.");
-            }
-            catch (Exception $exception) {
-
-                $response ->getBody() ->write("Se ha atrapado una excepcion: ".$excepcion ->getMessage());
+                $response->getBody()->write("Se ha atrapado una excepcion: ".$exception->getMessage());
             }
         }
 
         public static function VerificarEmpleado($request , $response) {
 
-            $datos = "mysql:host=localhost;dbname=DonFuBD";
+            $datos = "mysql:host=localhost;dbname=donfubd";
             $user = "root";
             $pass = "";
-            $empleado = $request ->getParsedBody();
+            $datosEmpleado = $request->getParsedBody();
 
             try {
 
-                $conexcion = new PDO($datos, $user, $pass);
-                
-                $resultados = $conexcion ->prepare("SELECT * FROM `empleados` WHERE `email`='".$empleado["correo"]."' AND `clave`='".$empleado["clave"]."'");
-                $resultados ->execute();
-                $fila = $resultados ->fetch(PDO::FETCH_ASSOC);
+                $conexcion = new PDO($datos , $user , $pass);
+                $resultados = $conexcion->prepare("SELECT `id`, `nombre`, `apellido`, `email`, `foto`, `legajo`, `clave`, `perfil` FROM `empleados` WHERE `email`='".$datosEmpleado["email"]."' and `clave`='".$datosEmpleado["clave"]."'");
+                $resultados->execute();
 
-                if ($fila) {
+                if($fila = $resultados->fetch(PDO::FETCH_ASSOC)) {
 
-                    $objeto = new Empleado($fila["nombre"], $fila["apellido"],$fila["email"],$fila["foto"],$fila["legajo"],$fila["clave"],$fila["perfil"]);
-                    $response ->getBody()->write(json_encode($objeto));
+                    $empleado = new Empleado($fila["nombre"] , $fila["apellido"] , $datosEmpleado["email"] , $fila["foto"] , $fila["legajo"] , $fila["clave"] , $fila["perfil"]);
+                    $ahora = time();
+                    $key = "12345";
+                    $token = array(
+
+                        "empleado" => json_encode($empleado),
+                        //"exp" => $ahora + (60)
+                    );
+                    $jwt = JWT::encode($token, $key);
+
+                    $response->getBody()->write('{"valido":"true","usuario":'.json_encode($empleado).',"token":"'.$jwt.'"}');
                 }
                 else {
 
-                    $response->getBody()->write('{"valido":"false","usuario":"{}"}');
+                    $response->getBody()->write('{"valido":"false","usuario":{}}');
                 }
             }
-            catch (Exception $exception) {
+            catch(Exception $exception) {
 
-                $response ->getBody() ->write("Se ha atrapado una excepcion: ".$exception ->getMessage());
+                $response->getBody()->write("Se ha atrapado una excepcion: ".$exception->getMessage());
             }
-
-            return $response;
-
         }
 
-        public static function Listar($request , $response) {
+        public static function RetornarEmpleados($response) {
 
-            $response->getBody()->write(json_encode(Empleado::ObtenerListado()));
-            return $response;
-        }
-
-        public function MiddlewareVerificarEmpleado($request , $response , $next) {
-
-            $datos = "mysql:host=localhost;dbname=DonFuBD";
+            $datos = "mysql:host=localhost;dbname=donfubd";
             $user = "root";
             $pass = "";
-            $empleado = $request ->getParsedBody();
+            $empleados = array();
 
             try {
 
-                $conexcion = new PDO($datos, $user, $pass);
-                
-                $resultados = $conexcion ->prepare("SELECT * FROM `empleados` WHERE `email`='".$empleado["correo"]."' AND `clave`='".$empleado["clave"]."'");
-                $resultados ->execute();
-                $fila = $resultados ->fetch(PDO::FETCH_ASSOC);
+                $conexcion = new PDO($datos , $user , $pass);
+                $resultados = $conexcion->prepare("SELECT `id`,`nombre`,`apellido`,`email`,`foto`, `legajo`,`clave`,`perfil` FROM `empleados` WHERE 1");
+                $resultados->execute();
 
-                var_dump($fila);
+                while($fila = $resultados->fetch(PDO::FETCH_ASSOC)) {
 
-                if($fila) {
-
-                    $objeto = new Empleado($fila["nombre"], $fila["apellido"],$fila["email"],$fila["foto"],$fila["legajo"],$fila["clave"],$fila["perfil"]);
-                    $response ->getBody()->write('{"valido":"true","usuario":"'.json_encode($objeto).'"}');
-
-                    if($objeto->perfil == "admin") {
-
-                        $response = $next($request , $response);
-                    }
-                    else {
-
-                        if($request->isPost()) {
-
-                            $response = $next($request , $response);
-                        }
-                        else {
-
-                            $response ->getBody()->write("No tenes permisos.");
-
-                        }
-                    }
+                    array_push($empleados , $fila);
                 }
-                else {
 
-                    $response->getBody()->write('{"valido":"false","usuario":"{}"}');
-                }
+                $response->getBody()->write(json_encode($empleados));
             }
-            catch (Exception $exception) {
+            catch(Exception $exception) {
 
-                $response ->getBody() ->write("Se ha atrapado una excepcion: ".$exception ->getMessage());
+                $response->getBody()->write("Se ha atrapado una excepcion: ".$exception->getMesagge());
             }
-
-            return $response;
         }
     }
+
 ?>

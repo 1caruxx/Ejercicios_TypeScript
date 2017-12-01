@@ -4,9 +4,9 @@
     use \Psr\Http\Message\ResponseInterface as Response;
 
     require_once './vendor/autoload.php';
-    require_once "./Empleado.php";
-    require_once "./Producto.php";
-    require_once "./Middleware.php";
+    require_once './Empleado.php';
+    require_once './Producto.php';
+    require_once './Middleware.php';
 
     $config['displayErrorDetails'] = true;
     $config['addContentLengthHeader'] = false;
@@ -26,43 +26,58 @@
     });
 
     $app->get("[/]" , function(Request $request , Response $response) {
-        
-        Empleado::Listar($request , $response);
+
+        Empleado::RetornarEmpleados($response);
         return $response;
     });
 
     $app->group("/productos" , function() {
 
         $this->post("[/]" , function(Request $request , Response $response) {
-        
-            Producto::Agregar($request, $response);
+
+            $datosProducto = $request->getParsedBody();
+            $consulta = "INSERT INTO `productos`(`nombre`,`precio`) VALUES ('".$datosProducto["nombre"]."','".$datosProducto["precio"]."')";
+
+            Producto::AdministrarBase($request , $response , $consulta);
             return $response;
-        })->add(\Empleado::class . ":MiddlewareVerificarEmpleado");
+        })->add(function($request , $response , $next) {
+
+            Middleware::VerificarToken($request , $response , $next , apache_request_headers()["token"]);
+            return $response;
+        });
 
         $this->get("[/]" , function(Request $request , Response $response) {
 
-            Producto::Listar($request, $response);
+            Producto::RetornarProductos($response);
             return $response;
         });
 
         $this->put("[/]" , function(Request $request , Response $response) {
+
+            $datosProducto = $request->getParsedBody();
+            $consulta = "UPDATE `productos` SET `nombre`='".$datosProducto["nombre"]."',`precio`=".$datosProducto["precio"]." WHERE `id`=".$datosProducto["id"];
             
-            Producto::Modificar($request, $response);
+            Producto::AdministrarBase($request , $response , $consulta);
             return $response;
-        })->add(\Empleado::class . ":MiddlewareVerificarEmpleado");
+        })->add(function($request , $response , $next) {
+
+            Middleware::VerificarToken($request , $response , $next , apache_request_headers()["token"]);
+            return $response;
+        });
 
         $this->delete("[/]" , function(Request $request , Response $response) {
-            
-            Producto::Eliminar($request, $response);
+
+            $datosProducto = $request->getParsedBody();
+            $consulta = "DELETE FROM `productos` WHERE `id`=".$datosProducto["id"];
+                        
+            Producto::AdministrarBase($request , $response , $consulta);
             return $response;
-        })->add(\Empleado::class . ":MiddlewareVerificarEmpleado");
+        })->add(function($request , $response , $next) {
+            
+            Middleware::VerificarToken($request , $response , $next , apache_request_headers()["token"]);
+            return $response;
+        });
     });
-
-    /*$app->add(function($request , $response , $next) {
-
-        Middleware::ContarVeces($request , $response , $next);
-        return $response;
-    });*/
 
     $app->run();
 ?>

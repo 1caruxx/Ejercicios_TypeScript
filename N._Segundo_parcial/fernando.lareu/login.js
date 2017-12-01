@@ -1,51 +1,55 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
     $("#form").bootstrapValidator({
 
         fields: {
             correo: {
                 validators: {
-                    notEmpty: { message: "Introduzca su correo." },
-                    emailAddress: { message: "Correo introducido no valido." }
+                    notEmpty: {message: "Se debe completar este campo."},
+                    emailAddress: {message: "eMail ingresado no valido."}
                 }
             },
             password: {
                 validators: {
-                    notEmpty: {message: "Introduzca su contraseña." },
-                    stringLength: {min: 4, max: 8, message: "La contraseña debe tener entre 4 y 8 caracteres." }
+                    notEmpty: {message: "Se debe completar este campo."},
+                    stringLength: {min: 4 , max: 8 , message: "Entre 4 y 8 caracteres."}
                 }
             }
         }
     })
-    .on("success.form.bv", function (form) {
+    .on("success.form.bv" , function(form) {
 
         form.preventDefault();
+
         $.ajax({
 
             url: "./admin.php/email/clave",
             type: "POST",
             data: {
-                "correo": $('#txtCorreo').val(),
-                "clave": $('#pswPass').val()
+
+                "email": $("#txtCorreo").val(),
+                "clave": $("#pswPass").val()
             },
             dataType: "json",
             async: true
         })
-        .done(function (respuesta) {
+        .done(function(response) {
 
-            if (respuesta.valido != "false") {
+            if(response.valido == "true") {
 
+                localStorage.setItem("token" , response.token);
                 location.href = "./principal.html";
             }
             else {
-                alert("Usuario inexistente.");
+
+                $("#divAlert").html("<div class='alert alert-danger'>Usuario no valido.</div>");
             }
         })
-        .fail(function (respuesta) {
+        .fail(function(response) {
 
-            alert("Algo salio mal: " + respuesta);
+            alert("Algo salio mal: " + response);
         });
-    });
+    })
 });
 
 function Registro() {

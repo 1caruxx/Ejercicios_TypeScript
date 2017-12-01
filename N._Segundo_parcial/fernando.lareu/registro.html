@@ -2,166 +2,168 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Registro</title>
 
-    <script src="./vendor/jquery/dist/jquery.min.js"></script>
-    <script src="./vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="./vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
+    <script type="text/javascript" src="./vendor/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="./vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
 
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
     <link rel="stylesheet" href="./vendor/bootstrap/dist/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="./css.css">
 
-    <script src="./registro.js"></script>
+    <script type="text/javascript" src="./registro.js"></script>
 </head>
 
-<body style="background-color:grey;">
-
-    <h3>REGISTRO</h3>
+<body style="background-color:rgb(153, 167, 184)">
 
     <div class="top-content">
 
+        <div class="inner-bg">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2 text-info">
+                        <h1 class="">
+                            <strong>REGISTRO</strong>
+                        </h1>
+                    </div>
+                </div>
 
-        <div class="row">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3 form-box">
 
+                        <div class="form-bottom">
+                            <form role="form" action="" method="post" class="login-form" id="form">
 
-            <form class="well form-horizontal" id="form">
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Apellido</label>
+                                    <div class=" inputGroupContainer">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="glyphicon glyphicon-user"></i>
+                                            </span>
 
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Apellido</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
+                                            <input type="text" class="form-control" name="apellido" id="txtApellido" placeholder="Apellido" />
+                                        </div>
+                                    </div>
+                                </div>
 
-                            <span class="input-group-addon">
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Nombre</label>
+                                    <div class=" inputGroupContainer">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="glyphicon glyphicon-user"></i>
+                                            </span>
 
-                                <i class="glyphicon glyphicon-user"></i>
-                            </span>
+                                            <input type="text" class="form-control" name="nombre" id="txtNombre" placeholder="Nombre" />
+                                        </div>
+                                    </div>
+                                </div>
 
-                            <input type="text" class="form-control" name="apellido" id="txtApellido" placeholder="Apellido" />
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">E-Mail</label>
+                                    <div class=" inputGroupContainer">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="glyphicon glyphicon-envelope"></i>
+                                            </span>
+
+                                            <input type="text" class="form-control" name="email" id="txtCorreo" placeholder="Correo" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Legajo</label>
+                                    <div class=" inputGroupContainer">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="glyphicon glyphicon-folder-open"></i>
+                                            </span>
+
+                                            <input type="text" class="form-control" name="legajo" id="txtLegajo" placeholder="Legajo" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Perfil</label>
+                                    <div class=" inputGroupContainer">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="glyphicon glyphicon-option-horizontal"></i>
+                                            </span>
+
+                                            <select class="form-control" name="perfil" id="cboPerfil">
+                                                <option>admin</option>
+                                                <option>user</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                        <label class="col-md-2 control-label">Foto</label>
+                                        <div class=" inputGroupContainer">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="glyphicon glyphicon-camera"></i>
+                                                </span>
+
+                                                <input type="file" class="form-control" name="foto" id="filFoto"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Clave</label>
+                                    <div class="inputGroupContainer">
+                                        <div class="input-group">
+
+                                            <span class="input-group-addon">
+                                                <i class="glyphicon glyphicon-lock"></i>
+                                            </span>
+
+                                            <input type="password" class="form-control" name="clave" id="pswPass" placeholder="Clave">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                        <label class="col-md-2 control-label">Confirmar</label>
+                                        <div class="inputGroupContainer">
+                                            <div class="input-group">
+    
+                                                <span class="input-group-addon">
+                                                    <i class="glyphicon glyphicon-lock"></i>
+                                                </span>
+    
+                                                <input type="password" class="form-control" name="confirmar" placeholder="Repita clave">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="submit" class="btn btn-info btn-block" id="btnEnviar">Enviar</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="reset" class="btn btn-warning btn-block" id="btnEnviar">Limpiar</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Nombre</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-
-                            <span class="input-group-addon">
-
-                                <i class="glyphicon glyphicon-user"></i>
-                            </span>
-
-                            <input type="text" class="form-control" name="nombre" id="txtNombre" placeholder="Nombre" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">E-Mail</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-
-                            <span class="input-group-addon">
-
-                                <i class="glyphicon glyphicon-envelope"></i>
-                            </span>
-
-                            <input type="text" class="form-control" name="email" id="txtEmail" placeholder="E-Mail" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Legajo</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-
-                            <span class="input-group-addon">
-
-                                <i class="glyphicon glyphicon-folder-open"></i>
-                            </span>
-
-                            <input type="text" class="form-control" name="legajo" id="txtLegajo" placeholder="Legajo" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Perfil</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-
-                            <span class="input-group-addon">
-
-                                <i class="glyphicon glyphicon-option-horizontal"></i>
-                            </span>
-
-                            <select id="cboPerfil" class="form-control">
-                                <option value="admin">Admin</option>
-                                <option value="invitado"= >Invitado</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Foto</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                            <div class="input-group">
-
-                                <span class="input-group-addon">
-
-                                    <i class="glyphicon glyphicon-camera"></i>
-                                </span>
-                                <input type="file" class="form-control" name="foto" id="file" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Clave</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="glyphicon glyphicon-lock"></i>
-                            </span>
-                            <input type="password" class="form-control" name="password" id="pswPass" placeholder="Contraseña">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Confirmar</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="glyphicon glyphicon-lock"></i>
-                            </span>
-                            <input type="password" class="form-control" name="confirm" id="pswConfirm" placeholder="Repita la clave">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label"></label>
-                    <div class="col-md-4">
-                        <button type="submit" class="btn btn-info">Enviar</button>
-                        <button type="reset" class="btn btn-warning">Limpiar</button>
-                    </div>
-                </div>
-
-            </form>
-
+            </div>
         </div>
-
     </div>
 </body>
 

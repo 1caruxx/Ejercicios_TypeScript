@@ -3,7 +3,7 @@
   "authors": [
     "1caruxx <fernandohugolareu@hotmail.com>"
   ],
-  "description": "Al logearse se genera un JSON Web Token que permitar al usuario acceder a un listado de usuarios y dar de alta, baja y modificar un usuario",
+  "description": "Alta, baja y modificacion de productos, permitiendo a un empleado logearse.",
   "main": "",
   "license": "MIT",
   "homepage": "index.html",
