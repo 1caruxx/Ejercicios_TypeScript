@@ -41,21 +41,21 @@ $(document).ready(function() {
                     stringLength: {min: 4 , max: 8 , message:"Entre 4 y 8 caracteres."}
 
                 }
-            }/*,
+            },
             confirmar: {
                 validators: {
                     notEmpty: {message: "Se debe completar este campo."},
                     stringLength: {min: 4 , max: 8 , message:"Entre 4 y 8 caracteres."},
-                    different: {field: "clave" , message: "Debe coincidir con el campo clave."}
+                    identical: {field: "clave" , message: "Debe coincidir con el campo clave."}
                 }
-            }*/
+            }
         }
     })
     .on("success.form.bv" , function(form) {
 
         form.preventDefault();
 
-        let archivo = document.getElementById("filFoto");
+        /*let archivo = document.getElementById("filFoto");
         let formData  = new FormData();
         formData.append("foto" , archivo.files[0]);
         formData.append("nombre" , $("#txtNombre").val());
@@ -63,10 +63,11 @@ $(document).ready(function() {
         formData.append("email" , $("#txtCorreo").val());
         formData.append("legajo" , $("#txtLegajo").val());
         formData.append("perfil" , $("#cboPerfil").val());
-        formData.append("clave" , $("#pswPass").val());
+        formData.append("clave" , $("#pswPass").val());*/
 
-        /*let formData  = new FormData();
-        formData.append("form" , document.getElementById("form"));*/
+        var formData = new FormData($(this)[0]);
+        var archivo = document.getElementById("filFoto");
+        formData.append("foto", archivo.files[0]);
 
         $.ajax({
             url: "./admin.php/",
