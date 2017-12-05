@@ -60,7 +60,7 @@ Los lenguajes tratados fueron:
 ## Profesores
 
 * Maximiliano Neiner
-* Mario Rampi
+* [Mario Rampi](https://github.com/MarioAr)
 
 ## Autor
 
